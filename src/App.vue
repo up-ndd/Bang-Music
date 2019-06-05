@@ -42,6 +42,10 @@ export default {
   width: 100%;
   background: linear-gradient(rgb(57, 154, 184), rgb(56, 231, 222));
   flex-shrink: 0;
+  line-height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 #app footer {
   height: 60px;
