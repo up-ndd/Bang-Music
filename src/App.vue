@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <header>
-      <router-link :to="{name:'H'}">个人中心</router-link>
-      <router-link :to="{name:'P'}">首页</router-link>
-      <router-link :to="{name:'V'}">视频</router-link>
+      <router-link :to="{name:'Personal'}">个人中心</router-link>
+      <router-link :to="{name:'Home'}">首页</router-link>
+      <router-link :to="{name:'Video'}">视频</router-link>
     </header>
     <div class="main">
       <router-view></router-view>
@@ -14,17 +14,17 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-import Home from "./components/Home";
-import Personal from "./components/Personal";
-import Viode from "./components/Viode";
+// import Home from "./components/Home";
+// import Personal from "./components/Personal";
+// import Video from "./components/Video";
 export default {
   name: "app",
   components: {
     //所有的组件
     // HelloWorld
-    Home,
-    Personal,
-    Viode
+    // Home,
+    // Personal,
+    // Video
   }
 };
 </script>
