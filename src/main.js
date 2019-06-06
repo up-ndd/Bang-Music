@@ -6,7 +6,7 @@ import VueRouter from "vue-router";
 import Home from "./components/Home.vue";
 import Video from "./components/Video.vue";
 import Personal from "./components/Personal.vue";
-
+import playmusic from './components/playmusic.vue'
 Vue.use(VueRouter);
 Vue.use(Vant);
 Vue.config.productionTip = false;
@@ -27,6 +27,11 @@ const router = new VueRouter({
             path: "/Personal",
             component: Personal,
             name: "Personal"
+        },
+        {
+            path: '/playmusic',
+            component: playmusic,
+            name: 'playmusic'
         }
     ]
 });
