@@ -6,25 +6,22 @@
       <router-link :to="{name:'Video'}">视频</router-link>
     </header>
     <div>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
-      <h1>个人中心</h1>
+      <!-- 我喜欢的音乐 -->
+      <div class="like">
+        <router-link :to="{name:'Like'}">我喜欢的音乐</router-link>
+      </div>
+      <!-- 我收藏的MV -->
+      <div class="colloce">
+        <router-link :to="{name:'Colloce'}">我收藏的MV</router-link>
+      </div>
+      <!-- 我收藏的歌单 -->
+      <div class="songs">
+        <router-link :to="{name:'Songs'}">我收藏的歌单</router-link>
+      </div>
+      <!-- 最近播放音乐 -->
+      <div class="broadcast">
+        <router-link :to="{name:'Broadcast'}">最近播放的音乐</router-link>
+      </div>
     </div>
 
     <footer>
@@ -32,3 +29,29 @@
     </footer>
   </div>
 </template>
+<style>
+.like {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  line-height: 60px;
+}
+.colloce {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  line-height: 60px;
+}
+.songs {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  line-height: 60px;
+}
+.broadcast {
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  line-height: 60px;
+}
+</style>
