@@ -7,11 +7,13 @@
       <router-link :to="{name:'Video'}">视频</router-link>
     </header>
     <!-- 轮播图 -->
-    <van-swipe :autoplay="3000" indicator-color="white" style="magintop:10px;">
-      <van-swipe-item v-for="(p,i) in pics" :key="i">
-        <img :src="p.pic" class="lunbotuimg">
-      </van-swipe-item>
-    </van-swipe>
+    <div class="lunbowrap">
+      <van-swipe :autoplay="3000" indicator-color="white" style="magintop:10px;">
+        <van-swipe-item v-for="(p,i) in pics" :key="i">
+          <img :src="p.pic" class="lunbotuimg">
+        </van-swipe-item>
+      </van-swipe>
+    </div>
     <!-- 私人FM、日推、歌单、排行 -->
     <div class="sirenwrap">
       <router-link :to="{name:'SirenFM'}">
@@ -69,4 +71,5 @@ export default {
   justify-content: space-around;
   align-items: center;
 }
+.lunbowrap{min-height: 158px}
 </style>
