@@ -13,13 +13,24 @@
       </van-swipe-item>
     </van-swipe>
     <!-- 私人FM、日推、歌单、排行 -->
-    
-
-
-
-
-
-
+    <div class="sirenwrap">
+      <router-link :to="{name:'SirenFM'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>私人FM</p>
+      </router-link>
+      <router-link :to="{name:'Meirituijian'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>每日推荐</p>
+      </router-link>
+      <router-link :to="{name:'Tuijiangedan'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>推荐歌单</p>
+      </router-link>
+      <router-link :to="{name:'Paihangbang'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>排行榜</p>
+      </router-link>
+    </div>
     <!-- 音乐播放控制 -->
     <footer>
       <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
@@ -43,7 +54,19 @@ export default {
 </script>
 <style>
 .lunbotuimg {
-  width: 100%;
-  border-radius: 10px;
+  width: 98%;
+  margin-left: 1%;
+  /* border-radius: 10px; */
+}
+.sirenwrap {
+  display: flex;
+  justify-content: space-around;
+}
+.sirenwrap div {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
 </style>
