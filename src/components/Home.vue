@@ -7,15 +7,19 @@
     </header>
     <van-swipe :autoplay="3000" indicator-color="white">
       <van-swipe-item>
+        <img src="http://p1.music.126.net/HwiCEyYhzBZq6dEa5eKjjg==/109951164125071146.jpg" alt>
         <h1>轮播图1</h1>
       </van-swipe-item>
       <van-swipe-item>
+        <img src="http://p1.music.126.net/HwiCEyYhzBZq6dEa5eKjjg==/109951164125071146.jpg" alt>
         <h1>轮播图2</h1>
       </van-swipe-item>
       <van-swipe-item>
+        <img src="http://p1.music.126.net/HwiCEyYhzBZq6dEa5eKjjg==/109951164125071146.jpg" alt>
         <h1>轮播图3</h1>
       </van-swipe-item>
       <van-swipe-item>
+        <img src="http://p1.music.126.net/HwiCEyYhzBZq6dEa5eKjjg==/109951164125071146.jpg" alt>
         <h1>轮播图4</h1>
       </van-swipe-item>
     </van-swipe>
@@ -24,3 +28,9 @@
     </footer>
   </div>
 </template>
+<style>
+img {
+  height: 90px;
+  width: 100%;
+}
+</style>
