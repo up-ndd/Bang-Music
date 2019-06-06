@@ -8,7 +8,9 @@
     <div class="main">
       <router-view></router-view>
     </div>
-    <footer>音乐播放位置</footer>
+    <footer>
+      <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
+    </footer>
   </div>
 </template>
 
