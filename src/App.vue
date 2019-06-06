@@ -1,16 +1,8 @@
 <template>
   <div id="app">
-    <header>
-      <router-link :to="{name:'Personal'}">个人中心</router-link>
-      <router-link :to="{name:'Home'}">首页</router-link>
-      <router-link :to="{name:'Video'}">视频</router-link>
-    </header>
     <div class="main">
       <router-view></router-view>
     </div>
-    <footer>
-      <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
-    </footer>
   </div>
 </template>
 
@@ -43,20 +35,29 @@ export default {
   height: 60px;
   width: 100%;
   background: linear-gradient(rgb(57, 154, 184), rgb(56, 231, 222));
-  flex-shrink: 0;
+  /* flex-shrink: 0; */
   line-height: 60px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  /* display: flex; */
+  /* flex-direction: row;
+  justify-content: space-around; */
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 #app footer {
   height: 60px;
   width: 100%;
   background: linear-gradient(rgb(81, 175, 167), rgb(67, 155, 75));
-  flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
-.main {
+/* .main {
   flex: 1;
   overflow: auto;
+} */
+.main {
+  margin-top: 60px;
 }
 </style>
