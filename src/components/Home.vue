@@ -1,26 +1,72 @@
 <template>
   <div>
+    <!-- 顶部 -->
     <header>
-      <router-link :to="{name:'Personal'}">个人中心</router-link>
+      <router-link :to="{name:'Personal'}">我的</router-link>
       <router-link :to="{name:'Home'}">首页</router-link>
       <router-link :to="{name:'Video'}">视频</router-link>
     </header>
-    <van-swipe :autoplay="3000" indicator-color="white">
-      <van-swipe-item>
-        <h1>轮播图1</h1>
-      </van-swipe-item>
-      <van-swipe-item>
-        <h1>轮播图2</h1>
-      </van-swipe-item>
-      <van-swipe-item>
-        <h1>轮播图3</h1>
-      </van-swipe-item>
-      <van-swipe-item>
-        <h1>轮播图4</h1>
+    <!-- 轮播图 -->
+    <van-swipe :autoplay="3000" indicator-color="white" style="magintop:10px;">
+      <van-swipe-item v-for="(p,i) in pics" :key="i">
+        <img :src="p.pic" class="lunbotuimg">
       </van-swipe-item>
     </van-swipe>
+    <!-- 私人FM、日推、歌单、排行 -->
+    <div class="sirenwrap">
+      <router-link :to="{name:'SirenFM'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>私人FM</p>
+      </router-link>
+      <router-link :to="{name:'Meirituijian'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>每日推荐</p>
+      </router-link>
+      <router-link :to="{name:'Tuijiangedan'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>推荐歌单</p>
+      </router-link>
+      <router-link :to="{name:'Paihangbang'}">
+        <van-icon name="service" color="red" size="50px"/>
+        <p>排行榜</p>
+      </router-link>
+    </div>
+    <!-- 音乐播放控制 -->
     <footer>
       <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
     </footer>
   </div>
 </template>
+<script>
+import { lunboreturn } from "./../serves/music";
+export default {
+  data() {
+    return {
+      pics: []
+    };
+  },
+  async created() {
+    const result = await lunboreturn();
+    this.pics = result.data.banners;
+    // console.log(this.pics);
+  }
+};
+</script>
+<style>
+.lunbotuimg {
+  width: 98%;
+  margin-left: 1%;
+  /* border-radius: 10px; */
+}
+.sirenwrap {
+  display: flex;
+  justify-content: space-around;
+}
+.sirenwrap div {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+</style>
