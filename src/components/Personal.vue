@@ -21,6 +21,10 @@
       <h1>个人中心</h1>
       <h1>个人中心</h1>
       <h1>个人中心</h1>
+      <h1>个人中心</h1>
+      <h1>个人中心</h1>
+      <h1>个人中心</h1>
+      <h1>个人中心</h1>
     </div>
     <footer>
       <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
