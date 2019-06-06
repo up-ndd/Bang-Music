@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <router-link :to="{name:'Personal'}">个人中心</router-link>
+      <router-link :to="{name:'Personal'}">我的</router-link>
       <router-link :to="{name:'Home'}">首页</router-link>
       <router-link :to="{name:'Video'}">视频</router-link>
     </header>
