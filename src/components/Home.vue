@@ -40,7 +40,7 @@
   </div>
 </template>
 <script>
-import { lunboreturn } from "./../serves/music";
+import { lunboreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -71,5 +71,7 @@ export default {
   justify-content: space-around;
   align-items: center;
 }
-.lunbowrap{min-height: 158px}
+.lunbowrap {
+  min-height: 158px;
+}
 </style>
