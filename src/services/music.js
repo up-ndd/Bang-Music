@@ -25,7 +25,7 @@ export function likelistreturn() {
 
 //歌曲详情
 export function likedatilereturn() {
-  return likedatile("https://miximusic.herokuapp.com/song/detail?ids=" + ids);
+  return likedatile("https://miximusic.herokuapp.com/song/detail?ids=ids");
 }
 
 //导出我收藏的MV

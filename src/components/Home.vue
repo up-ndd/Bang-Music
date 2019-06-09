@@ -2,9 +2,15 @@
   <div>
     <!-- 顶部 -->
     <header>
-      <router-link :to="{name:'Personal'}">我的</router-link>
-      <router-link :to="{name:'Home'}">首页</router-link>
-      <router-link :to="{name:'Video'}">视频</router-link>
+      <router-link :to="{name:'Personal'}">
+        <span>我的</span>
+      </router-link>
+      <router-link :to="{name:'Home'}">
+        <span>首页</span>
+      </router-link>
+      <router-link :to="{name:'Video'}">
+        <span>视频</span>
+      </router-link>
     </header>
     <!-- 轮播图 -->
     <div class="lunbowrap">
@@ -73,5 +79,8 @@ export default {
 }
 .lunbowrap {
   min-height: 158px;
+}
+span {
+  margin: 0px 5px;
 }
 </style>
