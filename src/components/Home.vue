@@ -71,5 +71,7 @@ export default {
   justify-content: space-around;
   align-items: center;
 }
-.lunbowrap{min-height: 158px}
+.lunbowrap {
+  min-height: 158px;
+}
 </style>
