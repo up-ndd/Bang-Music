@@ -80,6 +80,7 @@ export default {
 .lunbowrap {
   min-height: 158px;
 }
+
 span {
   margin: 0px 5px;
 }
