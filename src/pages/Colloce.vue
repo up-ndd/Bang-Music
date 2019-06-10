@@ -2,12 +2,12 @@
   <div id="collect">
     <ul>
       <h3>MV收藏页</h3>
-      <li v-for="i in collects" :key="i.id">
+      <li v-for="(i,a) in collects" :key="a">
         <router-link
           :to="{
             name:'ColloceDatile',
             query:{
-              id:i.id,
+              id:i.vid,
               name:i.name,
               r:Math.random()*1000
             },
@@ -17,7 +17,6 @@
           }"
         >
           <h5>{{i.title}}</h5>
-          <!-- <img src="i.coverUrl" style="height:100px;width:100px"> -->
         </router-link>
       </li>
     </ul>
@@ -35,7 +34,7 @@ export default {
     const result = await collectreturn();
     // console.log(result);
     this.collects = result.data.data;
-    // console.log(result.data.data);
+    // console.log(this.collects);
   }
 };
 </script>

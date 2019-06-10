@@ -1,13 +1,12 @@
 <template>
   <div class="b">
-    <h3>Mv详情页</h3>
-    <h4>{{Cd.name}}</h4>
-
-    <video :src="Cd.video?video.video.url:''" controls></video>
+    <h3>mv播放页面</h3>
+    <video v-for="(p,i) in Cd.urls" :key="i" :src="p.url" controls style="height:300px;width:355px"></video>
   </div>
 </template>
 <script>
 import { colloecdatilereturn } from "./../services/music";
+import { collectreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -15,8 +14,16 @@ export default {
     };
   },
   async created() {
+    // console.log(this.$route);
     const result = await colloecdatilereturn(this.$route.query.id);
-    this.Cd = result.data.brs;
+    console.log(result);
+    this.Cd = result.data;
+    console.log(this.Cd);
   }
 };
 </script>
+<style>
+video {
+  margin-left: 20px;
+}
+</style>
