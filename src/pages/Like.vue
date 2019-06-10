@@ -1,23 +1,22 @@
 <template>
   <div id="likemusiclist">
-    <h1>我喜欢的音乐</h1>
     <ul>
-      <li v-for="i in likelist" :key="i.id">
+      <h3>我喜欢的音乐</h3>
+      <li v-for="i in likelist" :key="i">
         <router-link
           :to="{
           name:'LikeDatile',
           query:{
-            id:i.id,
-            name:i.name,
+            id:i,
+            name:i,
             r:Math.random()*1000
           },
           params:{
-            id:i.id
+            id:i
           }
         }"
         >
-          <h5>{{i.name}}</h5>
-          <img src="i.picUrl" alt="i.name" style="height:100px;width:100px">
+          <h5>{{i}}</h5>
         </router-link>
       </li>
     </ul>
@@ -25,6 +24,7 @@
 </template>
 <script>
 import { likelistreturn } from "./../services/music";
+import { likedatilereturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -34,7 +34,30 @@ export default {
   async created() {
     const result = await likelistreturn();
     console.log(result);
-    this.likelist = result.data.ids;
+    result.data.ids.forEach(async id => {
+      const detail = await likedatilereturn(id);
+      // const obj = {
+      //   id,
+      //   name,
+      //   ar: [id, name],
+      //   al: [id, name, picUrl]
+      // };
+      this.likelist.push(detail.data.songs[0].name);
+    });
   }
 };
 </script>
+<style>
+ul {
+  margin-top: -50px;
+}
+h3 {
+  line-height: 40px;
+  text-align: center;
+}
+li {
+  line-height: 50px;
+  padding-left: 30px;
+  border-bottom: 1px solid gray;
+}
+</style>

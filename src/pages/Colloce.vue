@@ -1,7 +1,7 @@
 <template>
   <div id="collect">
-    <h1>我收藏的MV</h1>
     <ul>
+      <h3>MV收藏页</h3>
       <li v-for="i in collects" :key="i.id">
         <router-link
           :to="{
@@ -17,7 +17,7 @@
           }"
         >
           <h5>{{i.title}}</h5>
-          <img src="i.coverUrl" alt="i.title" style="height:100px;width:100px">
+          <!-- <img src="i.coverUrl" style="height:100px;width:100px"> -->
         </router-link>
       </li>
     </ul>
@@ -33,9 +33,9 @@ export default {
   },
   async created() {
     const result = await collectreturn();
-    console.log(result);
+    // console.log(result);
     this.collects = result.data.data;
-    console.log(result.data.data);
+    // console.log(result.data.data);
   }
 };
 </script>

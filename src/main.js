@@ -45,32 +45,32 @@ const router = new VueRouter({
       name: "playmusic"
     },
     {
-      path: "./pages/Like.vue",
+      path: "/pages/Like",
       component: Like,
       name: "Like"
     },
     {
-      path: "./pages/LikeDatile.vue",
+      path: "/pages/LikeDatile",
       component: LikeDatile,
       name: "LikeDatile"
     },
     {
-      path: "./pages/Colloce.vue",
+      path: "/pages/Colloce",
       component: Colloce,
       name: "Colloce"
     },
     {
-      path: "./pages/ColloceDatile.vue",
+      path: "/pages/ColloceDatile",
       component: ColloceDatile,
       name: "ColloceDatile"
     },
     {
-      path: "./pages/Songs.vue",
+      path: "/pages/Songs",
       component: Songs,
       name: "Songs"
     },
     {
-      path: "./pages/Broadcast.vue",
+      path: "/pages/Broadcast",
       component: Broadcast,
       name: "Broadcast"
     },
