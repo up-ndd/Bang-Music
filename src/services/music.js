@@ -40,3 +40,7 @@ export function colloecdatilereturn(id) {
 export function paihangbangreturn() {
       return get("http://10.8.155.18:3000/top/list?idx=1");
 }
+//根据歌曲id获取url
+export function getmusicurl(id) {
+      return get('http://10.8.155.18:3000/song/url?id=' + id)
+}

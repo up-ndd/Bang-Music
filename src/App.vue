@@ -41,4 +41,7 @@ export default {
 .main {
   margin-top: 62px;
 }
+a {
+  color: black;
+}
 </style>
