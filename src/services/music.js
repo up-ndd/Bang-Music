@@ -49,3 +49,13 @@ export function videoreturn() {
 export function videoDetalreturn() {
   return videoDetalreturn("http://10.8.155.18:3000/mv/detail?mvid=10867444");
 }
+
+//导出最近播放音乐返回值
+export function broadcastreturn() {
+  return get("http://10.8.155.18:3000/user/record?uid=1553202823&type=1");
+}
+
+//导出最近播放音乐详情
+export function broadcastdetalreturn(id) {
+  return get("http://10.8.155.18:3000/song/url?id=" + id);
+}
