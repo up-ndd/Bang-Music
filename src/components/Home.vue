@@ -62,8 +62,8 @@ export default {
 </script>
 <style>
 .lunbotuimg {
-  width: 98%;
-  margin-left: 1%;
+  width: 99%;
+  margin-left: 0.5%;
   /* border-radius: 10px; */
 }
 .sirenwrap {

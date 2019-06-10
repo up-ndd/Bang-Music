@@ -2,7 +2,7 @@
   <div class="d">
     <h1>我喜欢的歌曲详情</h1>
     <h5>{{likelist.name}}</h5>
-    <img :src="likelist.picUrl" alt="likelist.name">
+    <img :src="likelist.url" alt="likelist.name">
   </div>
 </template>
 <script>
@@ -15,8 +15,7 @@ export default {
   },
   async created() {
     const result = await likedatilereturn(this.$route.query.ids);
-    // console.log(result);
-    result.data.ids.forEach(element => {
+    this.likelist = result.data.ids.forEach(element => {
       ids.name;
     });
   }
