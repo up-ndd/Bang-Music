@@ -27,15 +27,15 @@
         <p>私人FM</p>
       </router-link>
       <router-link :to="{name:'Meirituijian'}">
-        <van-icon name="service" color="write" size="50px"/>
+        <van-icon name="send-gift" color="write" size="50px"/>
         <p>每日推荐</p>
       </router-link>
       <router-link :to="{name:'Tuijiangedan'}">
-        <van-icon name="service" color="write" size="50px"/>
+        <van-icon name="youzan-shield" color="write" size="50px"/>
         <p>推荐歌单</p>
       </router-link>
       <router-link :to="{name:'Paihangbang'}">
-        <van-icon name="service" color="write" size="50px"/>
+        <van-icon name="fire" color="write" size="50px"/>
         <p>排行榜</p>
       </router-link>
     </div>
@@ -75,7 +75,7 @@ span {
 }
 /* siren */
 p {
-  color: rgb(91, 156, 175);
+  color: rgb(94, 224, 218);
   margin-top: 5px;
 }
 .sirenwrap {
@@ -94,7 +94,7 @@ p {
   text-align: center;
 }
 .sirenwrap a i {
-  background: rgb(91, 156, 175);
+  background: rgb(94, 224, 218);
   color: #fff !important;
   border-radius: 50%;
   padding: 7px;
