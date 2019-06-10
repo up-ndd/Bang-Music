@@ -24,11 +24,7 @@
     </footer>
   </div>
 </template>
-<style>
-.paihangbangwrap {
-  margin-top: -60px;
-}
-</style>
+
 <script>
 import { paihangbangreturn } from "./../services/music";
 export default {
@@ -52,7 +48,8 @@ export default {
 <style>
 .paihangbanghead {
   height: 60px;
-  background: linear-gradient(rgb(57, 154, 184), rgb(56, 231, 222));
+  margin-top: -62px;
+  background: linear-gradient(rgb(94, 224, 218), rgb(176, 240, 234));
   line-height: 60px;
   text-indent: 5px;
 }
@@ -68,7 +65,7 @@ li:nth-of-type(1) {
 li:nth-of-type(1) i {
   text-indent: 0;
 }
-.paihangbangmain {
-  margin-top: 50px;
+.paihangbangmain ul {
+  padding: 50px 0;
 }
 </style>
