@@ -15,7 +15,7 @@ export default {
   },
   async created() {
     const result = await likedatilereturn(this.$route.query.ids);
-    console.log(result);
+    // console.log(result);
     result.data.ids.forEach(element => {
       ids.name;
     });

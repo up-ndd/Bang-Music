@@ -20,8 +20,8 @@ export function likelistreturn() {
 }
 
 //歌曲详情
-export function likedatilereturn(ids) {
-  return get("https://miximusic.herokuapp.com/song/detail?ids=" + ids);
+export function likedatilereturn(id) {
+  return get("https://miximusic.herokuapp.com/song/url?ids=" + id);
 }
 
 //导出我收藏的MV
@@ -33,7 +33,7 @@ export function collectreturn() {
 
 //mv详情
 export function colloecdatilereturn(id) {
-  return get("https://miximusic.herokuapp.com/mv/detail?mvid=5436712" + id);
+  return get("https://miximusic.herokuapp.com/mv/detail?mvid=" + id);
 }
 
 //导出排行榜返回数据
