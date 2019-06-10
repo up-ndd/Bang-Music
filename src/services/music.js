@@ -40,3 +40,12 @@ export function colloecdatilereturn(ids) {
 export function paihangbangreturn() {
   return get("http://10.8.155.18:3000/top/list?idx=1");
 }
+
+//导出推荐视频数据返回值
+export function videoreturn() {
+  return videoreturn("http://10.8.155.18:3000/mv/first?limit=20");
+}
+//导出推荐视频数据详情
+export function videoDetalreturn() {
+  return videoDetalreturn("http://10.8.155.18:3000/mv/detail?mvid=10867444");
+}

@@ -12,7 +12,9 @@
       </router-link>
     </header>
     <div>
-      <h1>视频页</h1>
+      <ul>
+        <li></li>
+      </ul>
     </div>
     <footer>
       <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
