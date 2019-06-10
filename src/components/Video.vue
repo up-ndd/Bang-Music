@@ -1,9 +1,15 @@
 <template>
   <div>
     <header>
-      <router-link :to="{name:'Personal'}">我的</router-link>
-      <router-link :to="{name:'Home'}">首页</router-link>
-      <router-link :to="{name:'Video'}">视频</router-link>
+      <router-link :to="{name:'Personal'}">
+        <span>我的</span>
+      </router-link>
+      <router-link :to="{name:'Home'}">
+        <span>首页</span>
+      </router-link>
+      <router-link :to="{name:'Video'}">
+        <span>视频</span>
+      </router-link>
     </header>
     <div>
       <h1>视频页</h1>

@@ -2,9 +2,15 @@
   <div>
     <!-- 顶部 -->
     <header>
-      <router-link :to="{name:'Personal'}">我的</router-link>
-      <router-link :to="{name:'Home'}">首页</router-link>
-      <router-link :to="{name:'Video'}">视频</router-link>
+      <router-link :to="{name:'Personal'}">
+        <span>我的</span>
+      </router-link>
+      <router-link :to="{name:'Home'}">
+        <span>首页</span>
+      </router-link>
+      <router-link :to="{name:'Video'}">
+        <span>视频</span>
+      </router-link>
     </header>
     <!-- 轮播图 -->
     <div class="lunbowrap">
@@ -40,7 +46,7 @@
   </div>
 </template>
 <script>
-import { lunboreturn } from "./../serves/music";
+import { lunboreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -74,4 +80,10 @@ export default {
 .lunbowrap {
   min-height: 158px;
 }
+<<<<<<< HEAD
+=======
+span {
+  margin: 0px 5px;
+}
+>>>>>>> a8bf81292feec881bb1ff71e156cf85931c787db
 </style>

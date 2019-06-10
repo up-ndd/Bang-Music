@@ -8,8 +8,10 @@ import Video from "./components/Video.vue";
 import Personal from "./components/Personal.vue";
 import playmusic from "./components/playmusic.vue";
 import Like from "./pages/Like.vue";
+import LikeDatile from "./pages/LikeDatile.vue";
 import Songs from "./pages/Songs.vue";
 import Colloce from "./pages/Colloce.vue";
+import ColloceDatile from "./pages/ColloceDatile.vue";
 import Broadcast from "./pages/Broadcast.vue";
 import SirenFM from "./components/SirenFM.vue";
 import Meirituijian from "./components/Meirituijian.vue";
@@ -48,9 +50,19 @@ const router = new VueRouter({
       name: "Like"
     },
     {
+      path: "./pages/LikeDatile.vue",
+      component: LikeDatile,
+      name: "LikeDatile"
+    },
+    {
       path: "./pages/Colloce.vue",
       component: Colloce,
       name: "Colloce"
+    },
+    {
+      path: "./pages/ColloceDatile.vue",
+      component: ColloceDatile,
+      name: "ColloceDatile"
     },
     {
       path: "./pages/Songs.vue",
