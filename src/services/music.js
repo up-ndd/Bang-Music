@@ -5,7 +5,8 @@ import {
   likemusiclist,
   collect,
   paihangbang,
-  likedatile
+  likedatile,
+  colloecdatile
 } from "./../utils/request";
 
 //导出登录返回值
@@ -21,17 +22,24 @@ export function lunboreturn() {
 
 //导出我喜欢的音乐列表返回值
 export function likelistreturn() {
-  return likemusiclist("https://miximusic.herokuapp.com/likelist?uid=32953014");
+  return likemusiclist(
+    "https://miximusic.herokuapp.com/likelist?uid=1553202823"
+  );
 }
 
 //歌曲详情
-export function likedatilereturn() {
-  return likedatile("https://miximusic.herokuapp.com/song/detail?ids=ids");
+export function likedatilereturn(ids) {
+  return likedatile("https://miximusic.herokuapp.com/song/detail?ids=" + ids);
 }
 
 //导出我收藏的MV
 export function collectreturn() {
   return collect("https://miximusic.herokuapp.com/mv/sublist");
+}
+
+//mv详情
+export function colloecdatilereturn(id) {
+  return colloecdatile("https://miximusic.herokuapp.com/mv/detail?mvid=" + id);
 }
 
 //导出排行榜返回数据

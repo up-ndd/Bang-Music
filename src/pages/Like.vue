@@ -24,6 +24,7 @@
   </div>
 </template>
 <script>
+import { likelistreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -32,7 +33,8 @@ export default {
   },
   async created() {
     const result = await likelistreturn();
-    this.likelist = result.data.data;
+    console.log(result);
+    this.likelist = result.data.ids;
   }
 };
 </script>

@@ -13,7 +13,7 @@
 }
 </style>
 <script>
-import { paihangbangreturn } from "./../serves/music";
+import { paihangbangreturn } from "./../services/music";
 export default {
   data() {
     return {
