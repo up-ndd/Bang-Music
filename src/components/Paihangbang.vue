@@ -3,7 +3,20 @@
     <div class="paihangbanghead">BangMusic排行榜</div>
     <div class="paihangbangmain">
       <ul>
-        <li v-for="(p,i) in list" :key="i">{{(i+1)}}：{{p.name}}</li>
+        <li>
+          <router-link :to="{name:'playmusic',query:{all:ids}}">
+            全部播放
+            <van-icon name="play-circle" size="16px"/>
+          </router-link>
+        </li>
+        <li v-for="(p,i) in list" :key="i">
+          <router-link
+            :to="{
+                name:'playmusic',
+                query:{all:[p]}
+          }"
+          >{{(i+1)}}：{{p.name}}</router-link>
+        </li>
       </ul>
     </div>
     <footer>
@@ -21,14 +34,18 @@ import { paihangbangreturn } from "./../services/music";
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      ids: []
     };
   },
   async created() {
     const result = await paihangbangreturn();
     //     console.log(result);
     this.list = result.data.playlist.tracks;
-    console.log(this.list);
+    //     console.log(this.list);
+    this.list.forEach(element => {
+      this.ids.push(element);
+    });
   }
 };
 </script>
@@ -42,7 +59,16 @@ export default {
 li {
   list-style: none;
   text-indent: 20px;
-  border-bottom: 1px dashed rgb(109, 179, 179);
+  border-bottom: 1px dashed rgb(35, 143, 143);
   padding: 10px 0;
+}
+li:nth-of-type(1) {
+  color: aquamarine;
+}
+li:nth-of-type(1) i {
+  text-indent: 0;
+}
+.paihangbangmain {
+  margin-top: 50px;
 }
 </style>

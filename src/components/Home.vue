@@ -23,19 +23,19 @@
     <!-- 私人FM、日推、歌单、排行 -->
     <div class="sirenwrap">
       <router-link :to="{name:'SirenFM'}">
-        <van-icon name="service" color="red" size="50px"/>
+        <van-icon name="service" color="write" size="50px"/>
         <p>私人FM</p>
       </router-link>
       <router-link :to="{name:'Meirituijian'}">
-        <van-icon name="service" color="red" size="50px"/>
+        <van-icon name="service" color="write" size="50px"/>
         <p>每日推荐</p>
       </router-link>
       <router-link :to="{name:'Tuijiangedan'}">
-        <van-icon name="service" color="red" size="50px"/>
+        <van-icon name="service" color="write" size="50px"/>
         <p>推荐歌单</p>
       </router-link>
       <router-link :to="{name:'Paihangbang'}">
-        <van-icon name="service" color="red" size="50px"/>
+        <van-icon name="service" color="write" size="50px"/>
         <p>排行榜</p>
       </router-link>
     </div>
@@ -61,14 +61,27 @@ export default {
 };
 </script>
 <style>
+/* header */
+span {
+  margin: 0px 5px;
+}
+/* lunbo */
+.lunbowrap {
+  min-height: 158px;
+}
 .lunbotuimg {
-  width: 99%;
-  margin-left: 0.5%;
-  /* border-radius: 10px; */
+  width: 98%;
+  margin-left: 1%;
+}
+/* siren */
+p {
+  color: rgb(91, 156, 175);
+  margin-top: 5px;
 }
 .sirenwrap {
   display: flex;
   justify-content: space-around;
+  margin-top: 10px;
 }
 .sirenwrap div {
   width: 25%;
@@ -77,11 +90,13 @@ export default {
   justify-content: space-around;
   align-items: center;
 }
-.lunbowrap {
-  min-height: 158px;
+.sirenwrap a {
+  text-align: center;
 }
-
-span {
-  margin: 0px 5px;
+.sirenwrap a i {
+  background: rgb(91, 156, 175);
+  color: #fff !important;
+  border-radius: 50%;
+  padding: 7px;
 }
 </style>

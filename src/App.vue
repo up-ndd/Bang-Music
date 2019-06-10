@@ -43,4 +43,7 @@ export default {
   background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
   height: 100%;
 }
+a {
+  color: black;
+}
 </style>
