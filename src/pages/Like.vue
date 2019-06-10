@@ -36,12 +36,6 @@ export default {
     console.log(result);
     result.data.ids.forEach(async id => {
       const detail = await likedatilereturn(id);
-      // const obj = {
-      //   id,
-      //   name,
-      //   ar: [id, name],
-      //   al: [id, name, picUrl]
-      // };
       this.likelist.push(detail.data.songs[0].name);
     });
   }

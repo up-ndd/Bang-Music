@@ -16,6 +16,7 @@ export default {
   },
   async created() {
     const result = await colloecdatilereturn(this.$route.query.id);
+    console.log(result);
     this.Cd = result.data.brs;
   }
 };
