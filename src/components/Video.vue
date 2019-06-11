@@ -35,14 +35,22 @@ export default {
   async created() {
     const total = await videoreturn();
     console.log(total.data.data);
-    this.list = total.data.data;
-    // console.log(this.list[1].id);
+    this.list = total.data.data; //显示图片
+    console.log(this.list[0].id);
     // const dizhi = new videoDetalreturn(id);
     // console.log(dizhi);
   }
 };
 </script>
+<<<<<<< HEAD
 <style scoped>
+=======
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+>>>>>>> 4ea9409731f1107b7170533f71882bf03993803c
 img {
   width: 90%;
   height: 10rem;
