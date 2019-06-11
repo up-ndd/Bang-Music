@@ -24,8 +24,8 @@ export function likedatilereturn(a) {
   return get("http://10.8.155.18:3000/song/detail?ids=" + a);
 }
 //歌曲url
-export function likedatileurl() {
-  return get("http://10.8.155.18:3000/song/url?id=26092806");
+export function likedatileurl(id) {
+  return get("http://10.8.155.18:3000/song/url?id=" + id);
 }
 
 //导出我收藏的MV
@@ -57,6 +57,11 @@ export function videoDetalreturn(id) {
 //导出最近播放音乐返回值
 export function broadcastreturn() {
   return get("http://10.8.155.18:3000/user/record?uid=1553202823&type=1");
+}
+
+//导出最近播放歌曲详情
+export function broadcastdetal(id) {
+  return get("http://10.8.155.18:3000/song/detail?ids=" + id);
 }
 
 //导出最近播放音乐详情

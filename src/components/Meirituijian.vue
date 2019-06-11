@@ -3,7 +3,7 @@
     <h1>每日推荐</h1>
   </div>
 </template>
-<style>
+<style scoped>
 .meirituijanwrap {
   margin-top: -60px;
 }

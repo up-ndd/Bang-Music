@@ -40,8 +40,11 @@ export default {
 }
 .main {
   margin-top: 62px;
-  background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
   height: 100%;
+}
+.main > div {
+  background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
+  min-height: 100%;
 }
 a {
   color: black;

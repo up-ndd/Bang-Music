@@ -42,7 +42,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 img {
   width: 90%;
   height: 10rem;

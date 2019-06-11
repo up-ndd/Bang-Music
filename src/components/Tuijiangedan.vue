@@ -3,7 +3,7 @@
     <h1>推荐歌单</h1>
   </div>
 </template>
-<style>
+<style scoped>
 .tuijiangedanwrap {
   margin-top: -60px;
 }

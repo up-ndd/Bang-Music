@@ -45,7 +45,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .paihangbanghead {
   height: 60px;
   margin-top: -62px;
