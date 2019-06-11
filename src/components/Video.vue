@@ -13,7 +13,9 @@
     </header>
     <div>
       <ul>
-        <li></li>
+        <li v-for=" (a,i) in list" :key="i">
+          <img :src="a.cover">
+        </li>
       </ul>
     </div>
     <footer>
@@ -21,4 +23,33 @@
     </footer>
   </div>
 </template>
+<script>
+import { videoreturn } from "./../services/music";
+import { videoDetalreturn } from "./../services/music";
+export default {
+  data() {
+    return {
+      list: []
+    };
+  },
+  async created() {
+    const total = await videoreturn();
+    console.log(total.data.data);
+    this.list = total.data.data;
+    // console.log(this.list[1].id);
+    // const dizhi = new videoDetalreturn(id);
+    // console.log(dizhi);
+  }
+};
+</script>
+<style>
+img {
+  width: 90%;
+  height: 10rem;
+  margin: 0.5rem auto;
+}
+li:nth-of-type(1) {
+  margin-top: 2rem;
+}
+</style>
 
