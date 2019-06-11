@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="homeflex">
     <!-- 顶部 -->
-    <header>
+    <header style="z-index:10">
       <router-link :to="{name:'Personal'}">
         <span>我的</span>
       </router-link>

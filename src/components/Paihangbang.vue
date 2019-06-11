@@ -4,7 +4,7 @@
     <div class="paihangbangmain">
       <ul>
         <li>
-          <router-link :to="{name:'playmusic',query:{all:ids}}">
+          <router-link :to="{name:'playmusic',query:{all:list}}">
             全部播放
             <van-icon name="play-circle" size="16px"/>
           </router-link>
@@ -30,18 +30,12 @@ import { paihangbangreturn } from "./../services/music";
 export default {
   data() {
     return {
-      list: [],
-      ids: []
+      list: []
     };
   },
   async created() {
     const result = await paihangbangreturn();
-    //     console.log(result);
     this.list = result.data.playlist.tracks;
-    //     console.log(this.list);
-    this.list.forEach(element => {
-      this.ids.push(element);
-    });
   }
 };
 </script>
