@@ -19,9 +19,13 @@ export function likelistreturn() {
     });
 }
 
-//歌曲详情
-export function likedatilereturn(id) {
-    return get("https://10.8.155.18:3000/song/detail?ids=" + id);
+// //歌曲详情
+export function likedatilereturn(a) {
+    return get("http://10.8.155.18:3000/song/detail?ids=" + a);
+}
+//歌曲url
+export function likedatileurl() {
+    return get("http://10.8.155.18:3000/song/url?id=26092806");
 }
 
 //导出我收藏的MV
@@ -43,11 +47,11 @@ export function paihangbangreturn() {
 
 //导出推荐视频数据返回值
 export function videoreturn() {
-    return get("http://10.8.155.18:3000/mv/first?limit=20");
+    return get("http://10.8.155.18:3000/mv/first?limit=100");
 }
 //导出推荐视频数据详情
-export function videoDetalreturn() {
-    return get("http://10.8.155.18:3000/mv/detail?mvid=10867444");
+export function videoDetalreturn(id) {
+    return get("http://10.8.155.18:3000/mv/url?id=" + id);
 }
 
 //导出最近播放音乐返回值

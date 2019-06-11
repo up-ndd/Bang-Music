@@ -2,7 +2,7 @@
   <div id="likemusiclist">
     <ul>
       <h3>我喜欢的音乐</h3>
-      <li v-for="i in likelist" :key="i">
+      <li v-for="(i,p) in likelist" :key="p">
         <router-link
           :to="{
           name:'LikeDatile',
@@ -16,7 +16,7 @@
           }
         }"
         >
-          <h5>{{i}}</h5>
+          <h5>{{i.name}}</h5>
         </router-link>
       </li>
     </ul>
@@ -32,11 +32,20 @@ export default {
     };
   },
   async created() {
+    let id = "";
     const result = await likelistreturn();
-    console.log(result);
-    result.data.ids.forEach(async id => {
-      const detail = await likedatilereturn(id);
-      this.likelist.push(detail.data.songs[0].name);
+    // console.log(result.data.ids);
+    for (let a = 0; a < result.data.ids.length; a++) {
+      if (a == 0) {
+        id += result.data.ids[a];
+      } else {
+        id += "," + result.data.ids[a];
+      }
+      // console.log(id);
+    }
+    likedatilereturn(id).then(res => {
+      this.likelist = res.data.songs;
+      console.log(this.likelist);
     });
   }
 };

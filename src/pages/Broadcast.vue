@@ -30,9 +30,9 @@ export default {
   },
   async created() {
     const result = await broadcastreturn();
-    console.log(result);
+    //console.log(result);
     this.broadcast = result.data.weekData;
-    console.log(this.broadcast);
+    //console.log(this.broadcast);
   }
 };
 </script>
