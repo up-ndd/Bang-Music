@@ -47,18 +47,11 @@ export function paihangbangreturn() {
 
 //导出推荐视频数据返回值
 export function videoreturn() {
-<<<<<<< HEAD
-    return get("http://10.8.155.18:3000/mv/first?limit=100");
+  return get("http://10.8.155.18:3000/mv/first?limit=100");
 }
 //导出推荐视频数据详情
 export function videoDetalreturn(id) {
-    return get("http://10.8.155.18:3000/mv/url?id=" + id);
-=======
-  return videoreturn("http://10.8.155.18:3000/mv/first?limit=20");
-}
-//导出推荐视频数据详情
-export function videoDetalreturn() {
-  return videoDetalreturn("http://10.8.155.18:3000/mv/detail?mvid=10867444");
+  return get("http://10.8.155.18:3000/mv/url?id=" + id);
 }
 
 //导出最近播放音乐返回值
@@ -69,5 +62,4 @@ export function broadcastreturn() {
 //导出最近播放音乐详情
 export function broadcastdetalreturn(id) {
   return get("http://10.8.155.18:3000/song/url?id=" + id);
->>>>>>> 53c57450454e8748735ff4c8e19833e6899e53b1
 }
