@@ -37,12 +37,17 @@ export default {
     console.log(total.data.data);
     this.list = total.data.data; //显示图片
     console.log(this.list[0].id);
+    this.list.forEach(element => {
+      // console.log(element.id);
+      const uid = videoDetalreturn(element.id);
+      console.log(uid);
+    });
     // const dizhi = new videoDetalreturn(id);
     // console.log(dizhi);
   }
 };
 </script>
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -51,9 +56,6 @@ img {
   width: 90%;
   height: 10rem;
   margin: 0.5rem auto;
-}
-li:nth-of-type(1) {
-  margin-top: 2rem;
 }
 </style>
 
