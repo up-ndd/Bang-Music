@@ -48,11 +48,7 @@ export function paihangbangreturn() {
 
 //导出推荐视频数据返回值
 export function videoreturn() {
-<<<<<<< HEAD
-    return get("http://10.8.155.18:3000/mv/first?limit=5");
-=======
-  return get("http://10.8.155.18:3000/mv/first?limit=100");
->>>>>>> 28683e676065603fc4bc166ed006ebaab44e3a39
+  return get("http://10.8.155.18:3000/mv/first?limit=5");
 }
 //导出推荐视频数据详情
 export function videoDetalreturn(id) {
@@ -89,4 +85,8 @@ export function tuijiangedanreturn() {
   return get("http://10.8.155.18:3000/recommend/resource", {
     withCredentials: true
   });
+}
+//导出我收藏的歌单信息
+export function shoucanggedanreturn() {
+  return get("http://10.8.155.18:3000/user/playlist?uid=1553202823");
 }

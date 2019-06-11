@@ -5,19 +5,14 @@
       <li v-for="(p,i) in broadcast" :key="i">
         <router-link
           :to="{
-        name:'BroadcastDatile',
+        name:'playmusic',
         query:{
-          id:i,
-          name:i
+          all:[p]
         },
-        parns:{
-          id:i
-        }
-        
         }"
         >
-          <img :src="p.song.al.picUrl" alt>
-          <h5>{{p.song.name}}</h5>
+          <img :src="p.al.picUrl" alt>
+          <h5>{{p.name}}</h5>
         </router-link>
       </li>
     </ul>
@@ -35,8 +30,13 @@ export default {
   async created() {
     const result = await broadcastreturn();
     //console.log(result);
-    this.broadcast = result.data.weekData;
-    console.log(this.broadcast[0].song);
+    // this.broadcast = result.data.weekData;
+    // console.log(this.broadcast);
+    //console.log(this.broadcast[0].song);
+    result.data.weekData.forEach(element => {
+      this.broadcast.push(element.song);
+    });
+    console.log(this.broadcast);
   }
 };
 </script>
@@ -51,7 +51,7 @@ h3 {
 li {
   line-height: 60px;
   padding-left: 30px;
-  border-bottom: 1px solid gray;
+
   float: left;
   width: 100%;
 }
