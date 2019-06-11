@@ -43,8 +43,8 @@ export default {
   height: 100%;
 }
 .main > div {
-  background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
   min-height: 100%;
+  background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
 }
 a {
   color: black;
