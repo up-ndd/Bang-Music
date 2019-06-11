@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div id="homeflex">
     <!-- 顶部 -->
-    <header>
+    <header style="z-index:10">
       <router-link :to="{name:'Personal'}">
         <span>我的</span>
       </router-link>
@@ -70,8 +70,9 @@ span {
   min-height: 158px;
 }
 .lunbotuimg {
-  width: 98%;
-  margin-left: 1%;
+  /* width: 98%;
+  margin-left: 1%; */
+  width: 100%;
 }
 /* siren */
 p {
