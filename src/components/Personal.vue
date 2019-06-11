@@ -35,7 +35,7 @@
     </footer>
   </div>
 </template>
-<style>
+<style scoped>
 .like {
   height: 60px;
   width: 100%;

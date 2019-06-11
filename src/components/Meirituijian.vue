@@ -23,6 +23,11 @@
     </ol>
   </div>
 </template>
+<<<<<<< HEAD
+<style scoped>
+.meirituijanwrap {
+  margin-top: -60px;
+=======
 <script>
 import { denglureturn, meirituijianreturn } from "./../services/music";
 export default {
@@ -46,5 +51,6 @@ export default {
 .meirituijianwrap {
   margin-top: -62px;
   position: absolute;
+>>>>>>> 1e0c8b940cab2935b9275501d3161d58351d41da
 }
 </style>

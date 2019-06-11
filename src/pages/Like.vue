@@ -16,7 +16,9 @@
           }
         }"
         >
+          <img :src="i.al.picUrl">
           <h5>{{i.name}}</h5>
+          <i>{{i.ar.name}}</i>
         </router-link>
       </li>
     </ul>
@@ -50,7 +52,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 ul {
   margin-top: -50px;
 }
@@ -59,8 +61,21 @@ h3 {
   text-align: center;
 }
 li {
-  line-height: 50px;
+  line-height: 60px;
   padding-left: 30px;
   border-bottom: 1px solid gray;
+  float: left;
+  width: 100%;
+}
+img {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-left: 10px;
+  padding-top: 5px;
+}
+h5 {
+  float: left;
+  padding-left: 20px;
 }
 </style>

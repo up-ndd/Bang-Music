@@ -42,11 +42,15 @@ export default {
   }
 };
 </script>
+<<<<<<< HEAD
+<style scoped>
+=======
 <style>
 * {
   margin: 0;
   padding: 0;
 }
+>>>>>>> 4ea9409731f1107b7170533f71882bf03993803c
 img {
   width: 90%;
   height: 10rem;
