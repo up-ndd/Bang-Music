@@ -1,6 +1,6 @@
 <template>
   <div class="contentwrap">
-    <h3 v-for="p in playlist">
+    <h3 v-for="p in playlist" :key="p.id">
       {{p.name}}
       <p>{{p.ar[0].name}}</p>
     </h3>
@@ -18,9 +18,9 @@ export default {
   },
   async created() {
     this.playlist = this.$route.query.all;
-    console.log(this.playlist);
+    //console.log(this.playlist);
     this.playlist.forEach(item => this.urllist.push(getmusicurl(item.id)));
-    console.log(this.urllist);
+    //console.log(this.urllist);
   }
 };
 </script>

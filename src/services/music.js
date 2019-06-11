@@ -19,9 +19,13 @@ export function likelistreturn() {
   });
 }
 
-//歌曲详情
-export function likedatilereturn(id) {
-  return get("https://10.8.155.18:3000/song/detail?ids=" + id);
+// //歌曲详情
+export function likedatilereturn(a) {
+  return get("http://10.8.155.18:3000/song/detail?ids=" + a);
+}
+//歌曲url
+export function likedatileurl() {
+  return get("http://10.8.155.18:3000/song/url?id=26092806");
 }
 
 //导出我收藏的MV
