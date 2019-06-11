@@ -70,8 +70,9 @@ span {
   min-height: 158px;
 }
 .lunbotuimg {
-  width: 98%;
-  margin-left: 1%;
+  /* width: 98%;
+  margin-left: 1%; */
+  width: 100%;
 }
 /* siren */
 p {
