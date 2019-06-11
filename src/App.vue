@@ -23,7 +23,7 @@ export default {
 #app header {
   height: 60px;
   width: 100%;
-  background: linear-gradient(rgb(57, 154, 184), rgb(56, 231, 222));
+  background: linear-gradient(rgb(94, 224, 218), rgb(176, 240, 234));
   line-height: 60px;
   position: fixed;
   top: 0;
@@ -32,7 +32,7 @@ export default {
 #app footer {
   height: 60px;
   width: 100%;
-  background: linear-gradient(rgb(81, 175, 167), rgb(67, 155, 75));
+  background: linear-gradient(rgb(176, 240, 234), rgb(94, 224, 218));
   position: fixed;
   bottom: 0;
   left: 0;
@@ -40,5 +40,10 @@ export default {
 }
 .main {
   margin-top: 62px;
+  background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
+  height: 100%;
+}
+a {
+  color: black;
 }
 </style>
