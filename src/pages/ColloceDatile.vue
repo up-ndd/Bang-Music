@@ -17,9 +17,9 @@ export default {
   async created() {
     // console.log(this.$route);
     const result = await colloecdatilereturn(this.$route.query.id);
-    console.log(result);
+    //console.log(result);
     this.Cd = result.data;
-    console.log(this.Cd);
+    //console.log(this.Cd);
   }
 };
 </script>

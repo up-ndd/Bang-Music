@@ -25,6 +25,7 @@ export default {
   data() {
     return {
       likelist: []
+      
     };
   },
   async created() {
@@ -41,7 +42,7 @@ export default {
     }
     likedatilereturn(id).then(res => {
       this.likelist = res.data.songs;
-      console.log(this.likelist);
+      //console.log(this.likelist);
     });
   }
 };

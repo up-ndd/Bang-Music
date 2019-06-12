@@ -20,7 +20,7 @@
 </template>
 <script>
 import { broadcastreturn } from "./../services/music";
-import { broadcastdetal } from "./../services/music";
+//import { broadcastdetal } from "./../services/music";
 export default {
   data() {
     return {
@@ -36,7 +36,7 @@ export default {
     result.data.weekData.forEach(element => {
       this.broadcast.push(element.song);
     });
-    console.log(this.broadcast);
+    // console.log(this.broadcast);
   }
 };
 </script>

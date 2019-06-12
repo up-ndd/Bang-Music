@@ -1,17 +1,17 @@
 <template>
   <div class="s">
-    <h1>我收藏的歌曲</h1>
     <ul>
+      <h3>我收藏的歌曲</h3>
       <li v-for="(p,i) in songlist" :key="i">
         <router-link
           :to="{
-          name:'plmusic',
+          name:'playmusic',
           query:{
             all:[p]
           },
         }"
         >
-          <h5>{{p.nickname}}</h5>
+          <h5>{{p.name}}</h5>
         </router-link>
       </li>
     </ul>
@@ -19,15 +19,49 @@
 </template>
 <script>
 import { shoucanggedanreturn } from "./../services/music";
+import { broadcastdetalreturn } from "./../services/music";
 export default {
   data() {
     return {
       songlist: []
     };
   },
-  async creaded() {
-    console.log(shoucanggedanreturn());
-    // result.data.playmusic[1]
+  async created() {
+    shoucanggedanreturn()
+      .then(result => {
+        console.log(result);
+        this.songlist = result.data.playlist;
+        this.songlist.shift();
+        console.log(this.songlist);
+      })
+      .catch(err => {});
   }
 };
 </script>
+<style scoped>
+ul {
+  margin-top: -50px;
+}
+h3 {
+  line-height: 40px;
+  text-align: center;
+}
+li {
+  line-height: 60px;
+  padding-left: 30px;
+
+  float: left;
+  width: 100%;
+}
+img {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-left: 10px;
+  padding-top: 10px;
+}
+h5 {
+  float: left;
+  padding-left: 20px;
+}
+</style>
