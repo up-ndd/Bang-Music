@@ -35,6 +35,15 @@
     </footer>
   </div>
 </template>
+<script>
+export default {
+  data() {
+    return {
+      active:0
+    }
+  },
+}
+</script>
 <style scoped>
 .like {
   height: 60px;
