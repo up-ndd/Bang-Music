@@ -2,12 +2,19 @@
   <div class="b">
     <h3>mv播放页面</h3>
 
-    <video v-for="(p,i) in Cd.urls" :key="i" :src="p.url" controls style="height:300px;width:355px"></video>
+    <video
+      v-for="(p,i) in Cd.urls"
+      :key="i"
+      :src="p.url"
+      controls
+      style="height:300px;width:355px"
+      autoplay
+    ></video>
   </div>
 </template>
 <script>
 import { colloecdatilereturn } from "./../services/music";
-//import { collectreturn } from "./../services/music";
+// import { collectreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -19,7 +26,7 @@ export default {
     const result = await colloecdatilereturn(this.$route.query.id);
     //console.log(result);
     this.Cd = result.data;
-    //console.log(this.Cd);
+    console.log(this.Cd);
   }
 };
 </script>

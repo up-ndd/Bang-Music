@@ -58,7 +58,7 @@
       <van-tabbar-item icon="contact" to="Personal">
         <span class="footername">我的</span>
       </van-tabbar-item>
-      <van-tabbar-item icon="wap-home" to="Hone">
+      <van-tabbar-item icon="wap-home" to="Home">
         <span class="footername">首页</span>
       </van-tabbar-item>
       <van-tabbar-item icon="tv-o" to="Video">
