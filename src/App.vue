@@ -36,8 +36,9 @@ export default {
   left: 0;
 }
 .main {
-  margin-top: 50px;
+  padding-top: 60px;
   height: 100%;
+  box-sizing: border-box;
 }
 .main > div {
   min-height: 100%;
