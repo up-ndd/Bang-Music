@@ -1,7 +1,24 @@
 <template>
   <div class="b">
+    <header>
+      <van-nav-bar
+        title="最近播放的音乐"
+        left-text="返回"
+        @click-left="onClickLeft"
+        left-arrow
+        style="height:100%;line-height:60px;"
+      >
+        <van-icon name="search" slot="right" size="24px"/>
+      </van-nav-bar>
+    </header>
+    <img :src="broadcast[12].al.picUrl" style="height:280px;width:100%">
     <ul>
-      <h3>最近播放的音乐</h3>
+      <li>
+        <router-link :to="{name:'playmusic',query:{all:broadcast}}">
+          全部播放
+          <van-icon name="play-circle" size="16px"/>
+        </router-link>
+      </li>
       <li v-for="(p,i) in broadcast" :key="i">
         <router-link
           :to="{
@@ -20,56 +37,40 @@
 </template>
 <script>
 import { broadcastreturn } from "./../services/music";
-//import { broadcastdetal } from "./../services/music";
 export default {
   data() {
     return {
       broadcast: []
     };
   },
+  methods: {
+    onClickLeft() {
+      window.history.go(-1);
+    }
+  },
   async created() {
     const result = await broadcastreturn();
-    //console.log(result);
-    // this.broadcast = result.data.weekData;
-    // console.log(this.broadcast);
-    //console.log(this.broadcast[0].song);
     result.data.weekData.forEach(element => {
       this.broadcast.push(element.song);
     });
-    console.log(this.broadcast.length);
+    console.log(this.broadcast[0].al.picUrl);
   }
 };
 </script>
 <style scoped>
 ul {
-  margin-top: -40px;
-}
-h3 {
-  line-height: 40px;
-  text-align: center;
-  margin-top: 10px;
+  margin-top: 25px;
 }
 li {
   line-height: 60px;
-  padding-left: 30px;
-
+  padding-left: 10px;
+  box-sizing: border-box;
   float: left;
   width: 100%;
-}
-img {
-  height: 50px;
-  width: 50px;
-  float: left;
-  margin-left: 10px;
-  padding-top: 5px;
 }
 h4 {
   float: left;
   padding-left: 20px;
 }
-/* .b {
-  height: 100%;
-  background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
-} */
 </style>
 

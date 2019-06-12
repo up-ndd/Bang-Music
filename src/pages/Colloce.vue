@@ -1,7 +1,18 @@
 <template>
   <div id="collect">
+    <header>
+      <van-nav-bar
+        title="MV收藏页"
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+        style="height:100%;line-height:60px;"
+      >
+        <van-icon name="search" slot="right" size="24px"/>
+      </van-nav-bar>
+    </header>
+    <img :src="collects[3].coverUrl" style="height:280px;width:100%">
     <ul>
-      <h3>MV收藏页</h3>
       <li v-for="(i,a) in collects" :key="a">
         <router-link
           :to="{
@@ -16,7 +27,7 @@
             }
           }"
         >
-          <h5>{{a+1}}、{{i.title}}</h5>
+          <h4>{{a+1}}、{{i.title}}</h4>
         </router-link>
       </li>
     </ul>
@@ -24,43 +35,38 @@
 </template>
 <script>
 import { collectreturn } from "./../services/music";
+// import { ColloceDatile } from "./../services/music";
 export default {
   data() {
     return {
       collects: []
     };
   },
+  methods: {
+    onClickLeft() {
+      window.history.go(-1);
+    }
+  },
   async created() {
     const result = await collectreturn();
     // console.log(result);
     this.collects = result.data.data;
-    console.log(this.collects.length);
+    console.log(this.collects);
   }
 };
 </script>
 <style scoped>
 ul {
-  margin-top: -50px;
-}
-h3 {
-  line-height: 40px;
-  text-align: center;
+  margin-top: 25px;
 }
 li {
   line-height: 60px;
-  padding-left: 30px;
-  border-bottom: 1px solid gray;
+  padding-left: 10px;
+  box-sizing: border-box;
   float: left;
   width: 100%;
 }
-img {
-  height: 50px;
-  width: 50px;
-  float: left;
-  margin-left: 10px;
-  padding-top: 10px;
-}
-h5 {
+h4 {
   float: left;
 }
 </style>

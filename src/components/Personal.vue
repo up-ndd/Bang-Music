@@ -2,8 +2,9 @@
   <div>
     <header>
       <van-nav-bar
-        title="Bang-Music"
+        title="个人中心"
         left-text="返回"
+        @click-left="onClickLeft"
         left-arrow
         style="height:100%;line-height:60px;"
       >
@@ -83,6 +84,11 @@ export default {
     return {
       active: 0
     };
+  },
+  methods: {
+    onClickLeft() {
+      window.history.go(-1);
+    }
   }
 };
 </script>
