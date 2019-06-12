@@ -39,19 +39,25 @@ import { collectreturn } from "./../services/music";
 export default {
   data() {
     return {
-      collects: []
+      collects: [],
+      count: 0
     };
   },
   methods: {
     onClickLeft() {
       window.history.go(-1);
+    },
+    collect() {
+      this.count = i;
     }
   },
   async created() {
     const result = await collectreturn();
     // console.log(result);
     this.collects = result.data.data;
-    console.log(this.collects);
+    //console.log(this.collects.length);
+    this.count = this.collects.length;
+    //console.log(this.count);
   }
 };
 </script>
