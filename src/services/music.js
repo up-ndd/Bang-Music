@@ -90,3 +90,7 @@ export function tuijiangedanreturn() {
 export function remengedanreturn() {
       return get('http://10.8.155.18:3000/top/playlist?limit=12')
 }
+//导出我收藏的歌单信息
+export function shoucanggedanreturn() {
+      return get("http://10.8.155.18:3000/user/playlist?uid=1553202823");
+}

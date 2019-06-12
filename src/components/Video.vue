@@ -56,6 +56,7 @@ img {
   width: 90%;
   height: 10rem;
   margin: 0.5rem auto;
+  padding-left: 20px;
 }
 </style>
 
