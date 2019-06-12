@@ -16,7 +16,7 @@
             }
           }"
         >
-          <h5>{{i.title}}</h5>
+          <h5>{{a+1}}、{{i.title}}</h5>
         </router-link>
       </li>
     </ul>
@@ -34,7 +34,7 @@ export default {
     const result = await collectreturn();
     // console.log(result);
     this.collects = result.data.data;
-    // console.log(this.collects);
+    console.log(this.collects.length);
   }
 };
 </script>
@@ -62,6 +62,5 @@ img {
 }
 h5 {
   float: left;
-  padding-left: 20px;
 }
 </style>

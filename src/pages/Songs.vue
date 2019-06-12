@@ -11,7 +11,7 @@
           },
         }"
         >
-          <h5>{{p.name}}</h5>
+          <h5>{{i+1}}、{{p.name}}</h5>
         </router-link>
       </li>
     </ul>
@@ -32,7 +32,7 @@ export default {
         console.log(result);
         this.songlist = result.data.playlist;
         this.songlist.shift();
-        console.log(this.songlist);
+        console.log(this.songlist.length);
       })
       .catch(err => {});
   }

@@ -11,8 +11,8 @@
         },
         }"
         >
-          <img :src="p.al.picUrl" alt>
-          <h5>{{p.name}}</h5>
+          <h4>{{i+1}}、{{p.name}}</h4>
+          <!-- <img :src="p.al.picUrl" alt> -->
         </router-link>
       </li>
     </ul>
@@ -36,17 +36,18 @@ export default {
     result.data.weekData.forEach(element => {
       this.broadcast.push(element.song);
     });
-    // console.log(this.broadcast);
+    console.log(this.broadcast.length);
   }
 };
 </script>
 <style scoped>
 ul {
-  margin-top: -50px;
+  margin-top: -40px;
 }
 h3 {
   line-height: 40px;
   text-align: center;
+  margin-top: 10px;
 }
 li {
   line-height: 60px;
@@ -62,13 +63,13 @@ img {
   margin-left: 10px;
   padding-top: 5px;
 }
-h5 {
+h4 {
   float: left;
   padding-left: 20px;
 }
-.b {
+/* .b {
   height: 100%;
   background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
-}
+} */
 </style>
 

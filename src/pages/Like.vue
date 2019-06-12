@@ -1,5 +1,16 @@
 <template>
   <div id="likemusiclist">
+    <header>
+      <van-nav-bar
+        title="Bang-Music"
+        left-text="返回"
+        left-arrow
+        style="height:100%;line-height:60px;"
+      >
+        <van-icon name="search" slot="right" size="24px"/>
+      </van-nav-bar>
+    </header>
+
     <ul>
       <h3>我喜欢的音乐</h3>
       <li v-for="(p,i) in likelist" :key="i">
@@ -11,8 +22,8 @@
           }
         }"
         >
-          <img :src="p.al.picUrl">
-          <h5>{{p.name}}</h5>
+          <!-- <img :src="p.al.picUrl"> -->
+          <h5>{{i+1}}、{{p.name}}</h5>
         </router-link>
       </li>
     </ul>
@@ -25,7 +36,6 @@ export default {
   data() {
     return {
       likelist: []
-      
     };
   },
   async created() {
@@ -42,18 +52,22 @@ export default {
     }
     likedatilereturn(id).then(res => {
       this.likelist = res.data.songs;
-      //console.log(this.likelist);
+      console.log(this.likelist.length);
     });
   }
 };
 </script>
 <style scoped>
+.like {
+  margin-top: -40px;
+}
 ul {
-  margin-top: -50px;
+  margin-top: 20px;
 }
 h3 {
   line-height: 40px;
   text-align: center;
+  margin-top: 10px;
 }
 li {
   line-height: 60px;
