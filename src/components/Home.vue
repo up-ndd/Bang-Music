@@ -1,17 +1,17 @@
 <template>
   <div id="homeflex">
-    <!-- 顶部 -->
-    <header style="z-index:10">
-      <router-link :to="{name:'Personal'}">
-        <span>我的</span>
-      </router-link>
-      <router-link :to="{name:'Home'}">
-        <span>首页</span>
-      </router-link>
-      <router-link :to="{name:'Video'}">
-        <span>视频</span>
-      </router-link>
+    <!-- 顶部start -->
+    <header>
+      <van-nav-bar
+        title="Bang-Music"
+        left-text="返回"
+        left-arrow
+        style="height:100%;line-height:60px;"
+      >
+        <van-icon name="search" slot="right" size="24px"/>
+      </van-nav-bar>
     </header>
+    <!-- end -->
     <!-- 轮播图 -->
     <div class="lunbowrap">
       <van-swipe :autoplay="3000" indicator-color="white" style="magintop:10px;">
@@ -39,24 +39,45 @@
         <p>排行榜</p>
       </router-link>
     </div>
-    <!-- 音乐播放控制 -->
-    <footer>
-      <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
-    </footer>
+    <!-- 热门歌单推荐 -->
+    <div class="title">热门歌单</div>
+    <ul class="gedanul">
+      <li v-for="(p,i) in gedans" :key="i" class="gedanli">
+        <img :src="p.coverImgUrl" class="gedancoverimg">
+        <p class="gedanname">{{p.name}}</p>
+      </li>
+    </ul>
+    <!-- 底部标签栏start -->
+    <van-tabbar v-model="active" inactive-color="#000" route="true" active-color="#5a9edb">
+      <van-tabbar-item icon="contact" to="Personal">
+        <span class="footername">我的</span>
+      </van-tabbar-item>
+      <van-tabbar-item icon="wap-home" to="Hone">
+        <span class="footername">首页</span>
+      </van-tabbar-item>
+      <van-tabbar-item icon="tv-o" to="Video">
+        <span class="footername">视频</span>
+      </van-tabbar-item>
+    </van-tabbar>
+    <!-- end -->
   </div>
 </template>
 <script>
-import { lunboreturn } from "./../services/music";
+import { lunboreturn, remengedanreturn } from "./../services/music";
 export default {
   data() {
     return {
-      pics: []
+      pics: [],
+      gedans: [],
+      active: 1
     };
   },
   async created() {
     const result = await lunboreturn();
     this.pics = result.data.banners;
-    // console.log(this.pics);
+    const gadanresult = await remengedanreturn();
+    this.gedans = gadanresult.data.playlists;
+    console.log(this.gedans);
   }
 };
 </script>
@@ -65,18 +86,24 @@ export default {
 span {
   margin: 0px 5px;
 }
+header {
+  position: relative;
+}
+.search {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
 /* lunbo */
 .lunbowrap {
   min-height: 158px;
 }
 .lunbotuimg {
-  /* width: 98%;
-  margin-left: 1%; */
   width: 100%;
 }
 /* siren */
-p {
-  color: rgb(94, 224, 218);
+.sirenwrap p {
+  color: #5a9edb;
   margin-top: 5px;
 }
 .sirenwrap {
@@ -95,9 +122,39 @@ p {
   text-align: center;
 }
 .sirenwrap a i {
-  background: rgb(94, 224, 218);
+  background: #5a9edb;
   color: #fff !important;
   border-radius: 50%;
   padding: 7px;
+}
+/* 热门歌单 */
+.title {
+  line-height: 60px;
+  text-indent: 10px;
+  font-weight: 900;
+}
+.gedanul {
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.gedanli {
+  width: 26%;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.gedancoverimg {
+  width: 100%;
+}
+.gedanli p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+/* footer */
+.footername {
+  font-size: 13px;
 }
 </style>

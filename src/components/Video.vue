@@ -47,15 +47,11 @@ export default {
   }
 };
 </script>
-
-
-
 <style scoped>
 * {
   margin: 0;
   padding: 0;
 }
-
 img {
   width: 90%;
   height: 10rem;

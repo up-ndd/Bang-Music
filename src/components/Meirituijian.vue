@@ -1,11 +1,11 @@
 <template>
   <div class="meirituijianwrap" style="argin-top: -60px">
     <div style="position: relative;">
-      <img :src="playlist[0].artists[0].img1v1Url" style="width:100%">
+      <img :src="playlist[0].album.picUrl" style="width:100%;height:300px">
       <p
         style="position: absolute;
     left: 20px;
-    bottom: 20px;
+    top: 200px;
     color: #fff;
     font-size: 22px;"
       >每日推荐</p>
@@ -18,7 +18,9 @@
         </router-link>
       </li>
       <li v-for="(p,i) in playlist" :key="i">
-        <router-link :to="{name:'playmusic',query:{all:[p]}}">{{p.name}} -- {{p.artists[0].name}}</router-link>
+        <router-link
+          :to="{name:'playmusic',query:{all:[p]}}"
+        >{{i+1 }}. {{p.name}} -- {{p.artists[0].name}}</router-link>
       </li>
     </ol>
   </div>
@@ -36,6 +38,11 @@ export default {
       meirituijianreturn().then(r => {
         //   console.log(r);
         this.playlist = r.data.recommend;
+        this.playlist.map((item, i) => {
+          let obj = {};
+          obj.name = this.playlist[i].artists[0].name;
+          item.ar = [{ name: obj.name }];
+        });
         console.log(this.playlist);
       });
     });
@@ -46,5 +53,9 @@ export default {
 .meirituijianwrap {
   margin-top: -62px;
   position: absolute;
+}
+li {
+  list-style: none;
+  padding: 13px 20px;
 }
 </style>

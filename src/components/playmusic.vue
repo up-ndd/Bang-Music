@@ -2,8 +2,8 @@
   <div class="contentwrap">
     <div>
       <p>现在播放第{{i+1}}首</p>
-      <h3>{{playlist[i].name}}</h3>
-      <p>{{zuozhe}}</p>
+      <p style="font-size:20px">{{playlist[i].name}}</p>
+      <p>{{playlist[i].ar[0].name}}</p>
       <audio :src="urllist[ip].url" controls autoplay></audio>
       <div>
         <van-button @click="premusic" plain hairline type="primary">上一首</van-button>
@@ -20,8 +20,7 @@ export default {
       playlist: [],
       i: 0,
       urllist: [],
-      ip: 0,
-      zuozhe: ""
+      ip: 0
     };
   },
   methods: {
@@ -51,7 +50,6 @@ export default {
     }
   },
   async created() {
-    console.log(this.$route.query.all);
     this.playlist = this.$route.query.all;
     let id = "";
     for (let a = 0; a < this.playlist.length; a++) {
@@ -67,9 +65,7 @@ export default {
         return item.id == this.playlist[0].id;
       });
     });
-    this.zuozhe = this.playlist[this.i].name
-      ? this.playlist[this.i].name
-      : this.playlist[this.i].name;
+    console.log(this.playlist);
   }
 };
 </script>
