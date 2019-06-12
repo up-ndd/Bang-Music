@@ -94,3 +94,8 @@ export function remengedanreturn() {
 export function shoucanggedanreturn() {
       return get("http://10.8.155.18:3000/user/playlist?uid=1553202823");
 }
+
+//歌单详情
+export function gedanxiangqingreturn(id) {
+      return get('http://10.8.155.18:3000/playlist/detail?id=' + id)
+}
