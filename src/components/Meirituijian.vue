@@ -1,14 +1,18 @@
 <template>
   <div class="meirituijianwrap" style="argin-top: -60px">
+    <header>
+      <van-nav-bar
+        title="每日推荐"
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+        style="height:100%;line-height:60px;"
+      >
+        <van-icon name="search" slot="right" size="24px"/>
+      </van-nav-bar>
+    </header>
     <div style="position: relative;">
       <img :src="playlist[0].album.picUrl" style="width:100%;height:300px">
-      <p
-        style="position: absolute;
-    left: 20px;
-    top: 200px;
-    color: #fff;
-    font-size: 22px;"
-      >每日推荐</p>
     </div>
     <ol>
       <li>
@@ -33,6 +37,11 @@ export default {
       playlist: []
     };
   },
+  methods: {
+    onClickLeft() {
+      window.history.go(-1);
+    }
+  },
   async created() {
     denglureturn().then(res => {
       meirituijianreturn().then(r => {
@@ -51,8 +60,6 @@ export default {
 </script>
 <style scoped>
 .meirituijianwrap {
-  margin-top: -62px;
-  position: absolute;
 }
 li {
   list-style: none;

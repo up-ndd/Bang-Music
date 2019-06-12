@@ -2,7 +2,7 @@
   <div>
     <header>
       <van-nav-bar
-        title="私人FM"
+        title="歌单详情"
         left-text="返回"
         left-arrow
         @click-left="onClickLeft"
@@ -22,8 +22,9 @@ export default {
     onClickLeft() {
       window.history.go(-1);
     }
+  },
+  created() {
+    console.log(this.$route);
   }
 };
 </script>
-<style scoped>
-</style>
