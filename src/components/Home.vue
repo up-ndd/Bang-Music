@@ -7,6 +7,7 @@
         left-text="返回"
         left-arrow
         style="height:100%;line-height:60px;"
+        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
@@ -78,12 +79,17 @@ export default {
       active: 1
     };
   },
+  methods: {
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
+    }
+  },
   async created() {
     const result = await lunboreturn();
     this.pics = result.data.banners;
     const gadanresult = await remengedanreturn();
     this.gedans = gadanresult.data.playlists;
-    console.log(this.gedans);
+    // console.log(this.gedans);
   }
 };
 </script>

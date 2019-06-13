@@ -7,6 +7,7 @@
         @click-left="onClickLeft"
         left-arrow
         style="height:100%;line-height:60px;"
+        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
@@ -50,37 +51,38 @@ export default {
     },
     like() {
       this.count = p;
+    },
+    SousuoHandle(){
+      this.$router.push({name:"SouSuo"})
     }
   },
   async created() {
     let id = "";
     const result = await likelistreturn();
+    // console.log(result);
     for (let a = 0; a < result.data.ids.length; a++) {
       if (a == 0) {
         id += result.data.ids[a];
       } else {
         id += "," + result.data.ids[a];
       }
-      // console.log(id);
     }
     likedatilereturn(id).then(res => {
       this.likelist = res.data.songs;
+      //console.log(this.likelist);
       this.count = this.likelist.length;
-      console.log(this.count);
     });
   }
 };
 </script>
 <style scoped>
-ul {
-  margin-top: 25px;
-}
 li {
   line-height: 60px;
   padding-left: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
+  background: rgb(251, 255, 255);
 }
 h4 {
   float: left;

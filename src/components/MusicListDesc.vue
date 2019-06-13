@@ -7,6 +7,7 @@
         left-arrow
         @click-left="onClickLeft"
         style="height:100%;line-height:60px;"
+        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
@@ -36,13 +37,16 @@ export default {
   methods: {
     onClickLeft() {
       window.history.go(-1);
+    },
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   created() {
     this.gedan = this.$route.query.p;
     gedanxiangqingreturn(this.gedan.id).then(res => {
       this.desc = res.data.playlist;
-      console.log(this.desc);
+      // console.log(this.desc);
       this.imgurl = {
         background: `url(${this.desc.coverImgUrl}) center center no-repeat`
       };
