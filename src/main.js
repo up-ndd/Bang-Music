@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Vant, { Search } from "vant";
+import Vant from "vant";
 import "vant/lib/index.css";
 import App from "./App.vue";
 import VueRouter from "vue-router";
