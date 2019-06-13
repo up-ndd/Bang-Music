@@ -2,23 +2,17 @@
   <div id="likemusiclist">
     <ul>
       <h3>我喜欢的音乐</h3>
-      <li v-for="(i,p) in likelist" :key="p">
+      <li v-for="(p,i) in likelist" :key="i">
         <router-link
           :to="{
-          name:'LikeDatile',
+          name:'playmusic',
           query:{
-            id:i,
-            name:i,
-            r:Math.random()*1000
-          },
-          params:{
-            id:i
+            all:[p]
           }
         }"
         >
-          <img :src="i.al.picUrl">
-          <h5>{{i.name}}</h5>
-          <i>{{i.ar.name}}</i>
+          <img :src="p.al.picUrl">
+          <h5>{{p.name}}</h5>
         </router-link>
       </li>
     </ul>
@@ -63,7 +57,7 @@ h3 {
 li {
   line-height: 60px;
   padding-left: 30px;
-  border-bottom: 1px solid gray;
+
   float: left;
   width: 100%;
 }
@@ -72,7 +66,7 @@ img {
   width: 50px;
   float: left;
   margin-left: 10px;
-  padding-top: 5px;
+  padding-top: 10px;
 }
 h5 {
   float: left;

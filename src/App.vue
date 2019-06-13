@@ -23,28 +23,25 @@ export default {
 #app header {
   height: 60px;
   width: 100%;
-  background: linear-gradient(rgb(94, 224, 218), rgb(176, 240, 234));
-  line-height: 60px;
+  z-index: 101;
   position: fixed;
-  top: 0;
+  top: -2px;
   left: 0;
 }
 #app footer {
   height: 60px;
   width: 100%;
-  background: linear-gradient(rgb(176, 240, 234), rgb(94, 224, 218));
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
 }
 .main {
-  margin-top: 62px;
+  margin-top: 50px;
   height: 100%;
 }
 .main > div {
   min-height: 100%;
-  background: linear-gradient(rgb(253, 253, 253), rgb(233, 225, 225));
+  background: rgb(253, 253, 253);
 }
 a {
   color: black;

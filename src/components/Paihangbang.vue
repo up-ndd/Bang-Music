@@ -1,7 +1,14 @@
 <template>
   <div class="paihangbangwrap">
-    <div class="paihangbanghead">BangMusic排行榜</div>
     <div class="paihangbangmain">
+      <p
+        style="position: absolute;
+    left: 20px;
+    top: 200px;
+    color: #fff;
+    font-size: 22px;"
+      >排行榜</p>
+      <img :src="list[0].al.picUrl" style="width:100%;height:300px;margin-top:-62px">
       <ul>
         <li>
           <router-link :to="{name:'playmusic',query:{all:list}}">
@@ -19,9 +26,6 @@
         </li>
       </ul>
     </div>
-    <footer>
-      <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
-    </footer>
   </div>
 </template>
 
@@ -36,6 +40,7 @@ export default {
   async created() {
     const result = await paihangbangreturn();
     this.list = result.data.playlist.tracks;
+    //     console.log(this.list);
   }
 };
 </script>
@@ -45,21 +50,12 @@ export default {
   margin-top: -62px;
   background: linear-gradient(rgb(94, 224, 218), rgb(176, 240, 234));
   line-height: 60px;
-  text-indent: 5px;
+  text-indent: 10px;
+  font-size: 20px;
+  color: aliceblue;
 }
 li {
   list-style: none;
-  text-indent: 20px;
-  border-bottom: 1px dashed rgb(35, 143, 143);
-  padding: 10px 0;
-}
-li:nth-of-type(1) {
-  color: aquamarine;
-}
-li:nth-of-type(1) i {
-  text-indent: 0;
-}
-.paihangbangmain ul {
-  padding: 50px 0;
+  padding: 14px 20px;
 }
 </style>

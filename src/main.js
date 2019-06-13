@@ -8,12 +8,10 @@ import Video from "./components/Video.vue";
 import Personal from "./components/Personal.vue";
 import playmusic from "./components/playmusic.vue";
 import Like from "./pages/Like.vue";
-import LikeDatile from "./pages/LikeDatile.vue";
 import Songs from "./pages/Songs.vue";
 import Colloce from "./pages/Colloce.vue";
 import ColloceDatile from "./pages/ColloceDatile.vue";
 import Broadcast from "./pages/Broadcast.vue";
-import BroadcastDatile from "./pages/BroadcastDatile.vue";
 import SirenFM from "./components/SirenFM.vue";
 import Meirituijian from "./components/Meirituijian.vue";
 import Tuijiangedan from "./components/Tuijiangedan.vue";
@@ -51,11 +49,6 @@ const router = new VueRouter({
       name: "Like"
     },
     {
-      path: "/pages/LikeDatile",
-      component: LikeDatile,
-      name: "LikeDatile"
-    },
-    {
       path: "/pages/Colloce",
       component: Colloce,
       name: "Colloce"
@@ -74,11 +67,6 @@ const router = new VueRouter({
       path: "/pages/Broadcast",
       component: Broadcast,
       name: "Broadcast"
-    },
-    {
-      path: "/pages/BroadcastDatile",
-      component: BroadcastDatile,
-      name: "BroadcastDatile"
     },
     {
       path: "/SirenFM",
