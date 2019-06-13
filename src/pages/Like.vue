@@ -40,18 +40,21 @@ import { likedatilereturn } from "./../services/music";
 export default {
   data() {
     return {
-      likelist: []
+      likelist: [],
+      count: 1
     };
   },
   methods: {
     onClickLeft() {
       window.history.go(-1);
+    },
+    like() {
+      this.count = p;
     }
   },
   async created() {
     let id = "";
     const result = await likelistreturn();
-    // console.log(result.data.ids);
     for (let a = 0; a < result.data.ids.length; a++) {
       if (a == 0) {
         id += result.data.ids[a];
@@ -62,7 +65,8 @@ export default {
     }
     likedatilereturn(id).then(res => {
       this.likelist = res.data.songs;
-      //console.log(this.likelist);
+      this.count = this.likelist.length;
+      console.log(this.count);
     });
   }
 };

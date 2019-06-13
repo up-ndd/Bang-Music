@@ -40,20 +40,25 @@ import { broadcastreturn } from "./../services/music";
 export default {
   data() {
     return {
-      broadcast: []
+      broadcast: [],
+      count: 0
     };
   },
   methods: {
     onClickLeft() {
       window.history.go(-1);
+    },
+    broadcasts() {
+      this.count = p;
     }
   },
   async created() {
     const result = await broadcastreturn();
     result.data.weekData.forEach(element => {
       this.broadcast.push(element.song);
+      this.count = this.broadcast.length;
     });
-    console.log(this.broadcast[0].al.picUrl);
+    // console.log(this.broadcast.length);
   }
 };
 </script>

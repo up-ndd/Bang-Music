@@ -19,9 +19,10 @@
             name="like-o"
             size="30px"
             style="line-height:60px;float:left;margin:0 20px"
-            color="#d04141"
+            color="#5a9edb"
           />
           <span>我喜欢的音乐</span>
+          ({{count1}})
         </router-link>
       </div>
       <!-- 我收藏的MV -->
@@ -30,10 +31,11 @@
           <van-icon
             name="star-o"
             size="30px"
-            color="#d04141"
+            color="#5a9edb"
             style="line-height:60px;float:left;margin:0 20px"
           />
           <span>我收藏的MV</span>
+          ({{count2}})
         </router-link>
       </div>
       <!-- 我收藏的歌单 -->
@@ -42,11 +44,11 @@
           <van-icon
             name="star-o"
             size="30px"
-            color="#d04141"
+            color="#5a9edb"
             style="line-height:60px;float:left;margin:0 20px"
           />
           <span>我收藏的歌单</span>
-          <a href="javascript:;">()</a>
+          ({{count}})
         </router-link>
       </div>
       <!-- 最近播放音乐 -->
@@ -55,7 +57,7 @@
           <van-icon
             name="music-o"
             size="30px"
-            color="#d04141"
+            color="#5a9edb"
             style="line-height:60px;float:left;margin:0 20px"
           />
           <span>最近播放的音乐</span>
@@ -79,16 +81,37 @@
   </div>
 </template>
 <script>
+import { shoucanggedanreturn } from "./../services/music";
+import { likelistreturn } from "./../services/music";
+import { collectreturn } from "./../services/music";
 export default {
   data() {
     return {
-      active: 0
+      active: 0,
+      count: 0,
+      count1: 0,
+      count2: 0
     };
   },
   methods: {
     onClickLeft() {
       window.history.go(-1);
     }
+  },
+  created() {
+    shoucanggedanreturn().then(result => {
+      console.log(result);
+      this.count = result.data.playlist.length - 1;
+      //console.log(this.count);
+    });
+    likelistreturn().then(result => {
+      console.log(result);
+      this.count1 = result.data.ids.length;
+    });
+    collectreturn().then(result => {
+      console.log(result);
+      this.count2 = result.data.length;
+    });
   }
 };
 </script>

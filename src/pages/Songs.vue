@@ -36,25 +36,29 @@
 </template>
 <script>
 import { shoucanggedanreturn } from "./../services/music";
-import { broadcastdetalreturn } from "./../services/music";
 export default {
   data() {
     return {
-      songlist: []
+      songlist: [],
+      count: 0
     };
   },
   methods: {
     onClickLeft() {
       window.history.go(-1);
+    },
+    song() {
+      this.count = p;
     }
   },
   async created() {
     shoucanggedanreturn()
       .then(result => {
-        console.log(result);
+        //console.log(result);
         this.songlist = result.data.playlist;
         this.songlist.shift();
-        console.log(this.songlist);
+        this.count = this.songlist.length;
+        console.log(this.count);
       })
       .catch(err => {});
   }
