@@ -1,5 +1,5 @@
 <template>
-  <div class="meirituijianwrap" style="argin-top: -60px">
+  <div class="meirituijianwrap">
     <header>
       <van-nav-bar
         title="每日推荐"
@@ -61,8 +61,6 @@ export default {
 };
 </script>
 <style scoped>
-.meirituijianwrap {
-}
 li {
   list-style: none;
   padding: 13px 20px;
