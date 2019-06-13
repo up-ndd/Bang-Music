@@ -1,26 +1,32 @@
 <template>
-  <div class="meirituijianwrap" style="argin-top: -60px">
+  <div class="meirituijianwrap">
+    <header>
+      <van-nav-bar
+        title="每日推荐"
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+        style="height:100%;line-height:60px;"
+      >
+        <van-icon name="search" slot="right" size="24px"/>
+      </van-nav-bar>
+    </header>
     <div style="position: relative;">
       <img :src="playlist[0].album.picUrl" style="width:100%;height:300px">
-      <p
-        style="position: absolute;
-    left: 20px;
-    top: 200px;
-    color: #fff;
-    font-size: 22px;"
-      >每日推荐</p>
     </div>
     <ol>
       <li>
-        <router-link :to="{name:'playmusic',query:{all:playlist}}">
+        <router-link :to="{name:'playmusic',query:{all:playlist}}" tag="div">
           全部播放
           <van-icon name="play-circle" size="16px"/>
         </router-link>
       </li>
       <li v-for="(p,i) in playlist" :key="i">
-        <router-link
-          :to="{name:'playmusic',query:{all:[p]}}"
-        >{{i+1 }}. {{p.name}} -- {{p.artists[0].name}}</router-link>
+        <router-link :to="{name:'playmusic',query:{all:[p]}}" tag="div">
+          <span class="paiming">{{i+1}}.</span>
+          <span class="musicname">{{p.name}}</span>
+          <p class="geshouname">{{p.artists[0].name}}</p>
+        </router-link>
       </li>
     </ol>
   </div>
@@ -32,6 +38,11 @@ export default {
     return {
       playlist: []
     };
+  },
+  methods: {
+    onClickLeft() {
+      window.history.go(-1);
+    }
   },
   async created() {
     denglureturn().then(res => {
@@ -50,12 +61,33 @@ export default {
 };
 </script>
 <style scoped>
-.meirituijianwrap {
-  margin-top: -62px;
-  position: absolute;
-}
 li {
   list-style: none;
   padding: 13px 20px;
+}
+.paiming {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.musicname {
+  text-indent: 10px;
+  display: inline-block;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.geshouname {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgray;
+  font-size: 14px;
+}
+.geshouname:active {
+  text-decoration: underline;
 }
 </style>

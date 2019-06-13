@@ -2,7 +2,7 @@
   <div>
     <header>
       <van-nav-bar
-        title="私人FM"
+        title="评论"
         left-text="返回"
         left-arrow
         @click-left="onClickLeft"
@@ -25,5 +25,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-</style>

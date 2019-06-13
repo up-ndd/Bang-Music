@@ -1,17 +1,21 @@
 <template>
   <div class="paihangbangwrap">
     <div class="paihangbangmain">
-      <p
-        style="position: absolute;
-    left: 20px;
-    top: 200px;
-    color: #fff;
-    font-size: 22px;"
-      >排行榜</p>
-      <img :src="list[0].al.picUrl" style="width:100%;height:300px;margin-top:-62px">
+      <header>
+        <van-nav-bar
+          title="排行榜"
+          left-text="返回"
+          left-arrow
+          @click-left="onClickLeft"
+          style="height:100%;line-height:60px;"
+        >
+          <van-icon name="search" slot="right" size="24px"/>
+        </van-nav-bar>
+      </header>
+      <img :src="list[61].al.picUrl" style="width:100%; max-height:300px">
       <ul>
         <li>
-          <router-link :to="{name:'playmusic',query:{all:list}}">
+          <router-link :to="{name:'playmusic',query:{all:list}}" tag="div">
             全部播放
             <van-icon name="play-circle" size="16px"/>
           </router-link>
@@ -22,7 +26,12 @@
                 name:'playmusic',
                 query:{all:[p]}
           }"
-          >{{(i+1)}}：{{p.name}}</router-link>
+            tag="div"
+          >
+            <span class="paiming">{{i+1}}.</span>
+            <span class="musicname">{{p.name}}</span>
+            <p class="geshouname">{{p.ar[0].name}}</p>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -37,10 +46,15 @@ export default {
       list: []
     };
   },
+  methods: {
+    onClickLeft() {
+      window.history.go(-1);
+    }
+  },
   async created() {
     const result = await paihangbangreturn();
     this.list = result.data.playlist.tracks;
-    //     console.log(this.list);
+    console.log(this.list);
   }
 };
 </script>
@@ -56,6 +70,31 @@ export default {
 }
 li {
   list-style: none;
-  padding: 14px 20px;
+  padding: 13px 20px;
+}
+.paiming {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.musicname {
+  text-indent: 10px;
+  display: inline-block;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.geshouname {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgray;
+  font-size: 14px;
+}
+.geshouname:active {
+  text-decoration: underline;
 }
 </style>

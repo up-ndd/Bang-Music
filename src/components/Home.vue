@@ -14,37 +14,43 @@
     <!-- end -->
     <!-- 轮播图 -->
     <div class="lunbowrap">
-      <van-swipe :autoplay="3000" indicator-color="white" style="magintop:10px;">
+      <van-swipe :autoplay="3000">
         <van-swipe-item v-for="(p,i) in pics" :key="i">
           <img :src="p.pic" class="lunbotuimg">
         </van-swipe-item>
       </van-swipe>
     </div>
     <!-- 私人FM、日推、歌单、排行 -->
-    <div class="sirenwrap">
-      <router-link :to="{name:'SirenFM'}">
-        <van-icon name="service" color="write" size="50px"/>
+    <ul class="sirenwrap">
+      <router-link :to="{name:'SirenFM'}" tag="li">
+        <van-icon name="service" size="50px"/>
         <p>私人FM</p>
       </router-link>
-      <router-link :to="{name:'Meirituijian'}">
-        <van-icon name="send-gift" color="write" size="50px"/>
+      <router-link :to="{name:'Meirituijian'}" tag="li">
+        <van-icon name="send-gift" size="50px"/>
         <p>每日推荐</p>
       </router-link>
-      <router-link :to="{name:'Tuijiangedan'}">
-        <van-icon name="youzan-shield" color="write" size="50px"/>
+      <router-link :to="{name:'Tuijiangedan'}" tag="li">
+        <van-icon name="youzan-shield" size="50px"/>
         <p>推荐歌单</p>
       </router-link>
-      <router-link :to="{name:'Paihangbang'}">
-        <van-icon name="fire" color="write" size="50px"/>
+      <router-link :to="{name:'Paihangbang'}" tag="li">
+        <van-icon name="fire" size="50px"/>
         <p>排行榜</p>
       </router-link>
-    </div>
+    </ul>
     <!-- 热门歌单推荐 -->
     <div class="title">热门歌单</div>
     <ul class="gedanul">
       <li v-for="(p,i) in gedans" :key="i" class="gedanli">
-        <img :src="p.coverImgUrl" class="gedancoverimg">
-        <p class="gedanname">{{p.name}}</p>
+        <router-link :to="{name:'MusicListDesc',query:{id:p.id}}" tag="li">
+          <img :src="p.coverImgUrl" class="gedancoverimg">
+          <p class="gedanname">{{p.name}}</p>
+          <span class="playcount">
+            <van-icon name="play-circle-o"/>
+            {{Math.round(p.playCount/10000)}}万
+          </span>
+        </router-link>
       </li>
     </ul>
     <!-- 底部标签栏start -->
@@ -52,7 +58,7 @@
       <van-tabbar-item icon="contact" to="Personal">
         <span class="footername">我的</span>
       </van-tabbar-item>
-      <van-tabbar-item icon="wap-home" to="Hone">
+      <van-tabbar-item icon="wap-home" to="Home">
         <span class="footername">首页</span>
       </van-tabbar-item>
       <van-tabbar-item icon="tv-o" to="Video">
@@ -82,26 +88,20 @@ export default {
 };
 </script>
 <style>
-/* header */
-span {
-  margin: 0px 5px;
-}
-header {
-  position: relative;
-}
+/* 搜索按钮 */
 .search {
   position: absolute;
   right: 20px;
   top: 10px;
 }
-/* lunbo */
+/* 轮播图 */
 .lunbowrap {
-  min-height: 158px;
+  min-height: 155px;
 }
 .lunbotuimg {
   width: 100%;
 }
-/* siren */
+/* 私人FM */
 .sirenwrap p {
   color: #5a9edb;
   margin-top: 5px;
@@ -109,7 +109,6 @@ header {
 .sirenwrap {
   display: flex;
   justify-content: space-around;
-  margin-top: 10px;
 }
 .sirenwrap div {
   width: 25%;
@@ -118,14 +117,15 @@ header {
   justify-content: space-around;
   align-items: center;
 }
-.sirenwrap a {
+.sirenwrap li {
+  list-style-type: none;
   text-align: center;
 }
-.sirenwrap a i {
+.sirenwrap li i {
   background: #5a9edb;
-  color: #fff !important;
-  border-radius: 50%;
-  padding: 7px;
+  color: #fff;
+  border-radius: 48%;
+  padding: 10px;
 }
 /* 热门歌单 */
 .title {
@@ -145,6 +145,16 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+}
+.gedanli .playcount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px;
+  background: rgba(182, 147, 147, 0.4);
+  color: #fff;
+  line-height: 16px;
 }
 .gedancoverimg {
   width: 100%;

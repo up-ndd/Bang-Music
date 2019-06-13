@@ -14,11 +14,8 @@ export default {
       likelist: {}
     };
   },
-
   async created() {
-    console.log(likelistreturn());
     const result = await likedatileurl(this.$route.query.ids);
-    console.log(result.data.data[0]);
     const likelist = result.data.data[0];
   }
 };
