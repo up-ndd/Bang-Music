@@ -99,3 +99,9 @@ export function shoucanggedanreturn() {
 export function gedanxiangqingreturn(id) {
       return get('http://10.8.155.18:3000/playlist/detail?id=' + id)
 }
+//收藏/取消收藏歌单  t : 类型,1:收藏,2:取消收藏 id : 歌单 id
+export function gedanshoucang(t, id) {
+      return get(`http://10.8.155.18:3000/playlist/subscribe?t=${t}&id=${id}`, {
+            withCredentials: true
+      })
+}

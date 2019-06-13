@@ -13,12 +13,14 @@
     </header>
     <ul style="margin:0" class="gedanul">
       <li v-for="(p,i) in list" :key="i" class="gedanli">
-        <img :src="p.picUrl" alt>
-        <p>{{p.name}}</p>
-        <span class="playcount">
-          <van-icon name="play-circle-o"/>
-          {{Math.round(p.playcount/10000)}}万
-        </span>
+        <router-link :to="{name:'MusicListDesc',query:{id:p.id}}" tag="li">
+          <img :src="p.picUrl" alt>
+          <p>{{p.name}}</p>
+          <span class="playcount">
+            <van-icon name="play-circle-o"/>
+            {{Math.round(p.playcount/10000)}}万
+          </span>
+        </router-link>
       </li>
     </ul>
   </div>

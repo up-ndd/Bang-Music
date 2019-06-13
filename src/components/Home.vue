@@ -21,29 +21,29 @@
       </van-swipe>
     </div>
     <!-- 私人FM、日推、歌单、排行 -->
-    <div class="sirenwrap">
-      <router-link :to="{name:'SirenFM'}">
+    <ul class="sirenwrap">
+      <router-link :to="{name:'SirenFM'}" tag="li">
         <van-icon name="service" size="50px"/>
         <p>私人FM</p>
       </router-link>
-      <router-link :to="{name:'Meirituijian'}">
+      <router-link :to="{name:'Meirituijian'}" tag="li">
         <van-icon name="send-gift" size="50px"/>
         <p>每日推荐</p>
       </router-link>
-      <router-link :to="{name:'Tuijiangedan'}">
+      <router-link :to="{name:'Tuijiangedan'}" tag="li">
         <van-icon name="youzan-shield" size="50px"/>
         <p>推荐歌单</p>
       </router-link>
-      <router-link :to="{name:'Paihangbang'}">
+      <router-link :to="{name:'Paihangbang'}" tag="li">
         <van-icon name="fire" size="50px"/>
         <p>排行榜</p>
       </router-link>
-    </div>
+    </ul>
     <!-- 热门歌单推荐 -->
     <div class="title">热门歌单</div>
     <ul class="gedanul">
       <li v-for="(p,i) in gedans" :key="i" class="gedanli">
-        <router-link :to="{name:'MusicListDesc',query:{p}}">
+        <router-link :to="{name:'MusicListDesc',query:{id:p.id}}" tag="li">
           <img :src="p.coverImgUrl" class="gedancoverimg">
           <p class="gedanname">{{p.name}}</p>
           <span class="playcount">
@@ -107,7 +107,6 @@ export default {
   margin-top: 5px;
 }
 .sirenwrap {
-  margin-top: 10px;
   display: flex;
   justify-content: space-around;
 }
@@ -118,10 +117,11 @@ export default {
   justify-content: space-around;
   align-items: center;
 }
-.sirenwrap a {
+.sirenwrap li {
+  list-style-type: none;
   text-align: center;
 }
-.sirenwrap a i {
+.sirenwrap li i {
   background: #5a9edb;
   color: #fff;
   border-radius: 48%;
