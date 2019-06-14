@@ -1,15 +1,15 @@
 <template>
   <div>
     <header>
-      <router-link :to="{name:'Personal'}">
-        <span>我的</span>
-      </router-link>
-      <router-link :to="{name:'Home'}">
-        <span>首页</span>
-      </router-link>
-      <router-link :to="{name:'Video'}">
-        <span>视频</span>
-      </router-link>
+      <van-nav-bar
+        title="推荐视频"
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+        style="height:100%;line-height:60px;"
+      >
+        <van-icon name="search" slot="right" size="24px"/>
+      </van-nav-bar>
     </header>
     <div>
       <ul>
@@ -19,7 +19,17 @@
       </ul>
     </div>
     <footer>
-      <router-link :to="{name:'playmusic'}">音乐播放位置</router-link>
+      <van-tabbar v-model="active" inactive-color="#000" route="true" active-color="#5a9edb">
+        <van-tabbar-item icon="contact" to="Personal">
+          <span class="footername">我的</span>
+        </van-tabbar-item>
+        <van-tabbar-item icon="wap-home" to="/">
+          <span class="footername">首页</span>
+        </van-tabbar-item>
+        <van-tabbar-item icon="tv-o" to="Video">
+          <span class="footername">视频</span>
+        </van-tabbar-item>
+      </van-tabbar>
     </footer>
   </div>
 </template>
@@ -48,11 +58,6 @@ export default {
 };
 </script>
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-}
-
 img {
   width: 90%;
   height: 10rem;
