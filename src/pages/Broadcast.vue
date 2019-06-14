@@ -29,7 +29,8 @@
         },
         }"
         >
-          <h4>{{i+1}}、{{p.name}}</h4>
+          <p>{{i+1}}、{{p.name}}</p>
+          <span>{{p.ar[0].name}}</span>
         </router-link>
       </li>
     </ul>
@@ -59,6 +60,7 @@ export default {
     const result = await broadcastreturn();
     result.data.weekData.forEach(element => {
       this.broadcast.push(element.song);
+      console.log(this.broadcast);
       this.count = this.broadcast.length;
     });
   }
@@ -71,10 +73,13 @@ li {
   box-sizing: border-box;
   float: left;
   width: 100%;
-  background: rgb(234, 236, 236);
 }
-h4 {
+p {
   float: left;
+  padding-left: 20px;
+}
+span {
+  color: darkgray;
   padding-left: 20px;
 }
 </style>

@@ -23,8 +23,8 @@ export function likelistreturn() {
 export function likedatilereturn(a) {
       return get("http://10.8.155.18:3000/song/detail?ids=" + a);
 }
-//歌曲url
 
+//歌曲url
 export function likedatileurl(id) {
       return get("http://10.8.155.18:3000/song/url?id=" + id);
 }
@@ -96,7 +96,7 @@ export function gedanxiangqingreturn(id) {
       return get("http://10.8.155.18:3000/playlist/detail?id=" + id);
 }
 
-//搜索接口 获取最终搜索的详情，拿着id调用获取音乐url
+//多重匹配搜索接口 获取最终搜索的详情，拿着id调用获取音乐url
 export function sousuojiekou(key) {
       return get("http://10.8.155.18:3000/search?keywords=" + key);
 }

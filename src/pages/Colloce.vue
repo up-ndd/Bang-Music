@@ -2,7 +2,7 @@
   <div id="collect">
     <header>
       <van-nav-bar
-        title="MV收藏页"
+        title="我收藏的MV"
         left-text="返回"
         left-arrow
         @click-left="onClickLeft"
@@ -28,7 +28,10 @@
             }
           }"
         >
-          <h4>{{a+1}}、{{i.title}}</h4>
+          <p>
+            {{a+1}}、{{i.title}}
+            <span>{{i.creator[0].userName}}</span>
+          </p>
         </router-link>
       </li>
     </ul>
@@ -57,7 +60,9 @@ export default {
   },
   async created() {
     const result = await collectreturn();
+    console.log(result);
     this.collects = result.data.data;
+
     this.count = this.collects.length;
   }
 };
@@ -67,13 +72,17 @@ ul {
   margin-top: 25px;
 }
 li {
-  line-height: 60px;
+  line-height: 50px;
   padding-left: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
 }
-h4 {
+p {
   float: left;
+  overflow: hidden;
+}
+span {
+  color: darkgray;
 }
 </style>
