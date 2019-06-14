@@ -7,6 +7,7 @@
         left-arrow
         @click-left="onClickLeft"
         style="height:100%;line-height:60px;"
+        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
@@ -49,25 +50,23 @@ export default {
     },
     song() {
       this.count = p;
+    },
+    SousuoHandle(){
+      this.$router.push({name:"SouSuo"})
     }
   },
   async created() {
     shoucanggedanreturn()
       .then(result => {
-        //console.log(result);
         this.songlist = result.data.playlist;
         this.songlist.shift();
         this.count = this.songlist.length;
-        console.log(this.count);
       })
       .catch(err => {});
   }
 };
 </script>
 <style scoped>
-ul {
-  margin-top: 25px;
-}
 li {
   line-height: 60px;
   padding-left: 10px;

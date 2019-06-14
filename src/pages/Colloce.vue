@@ -7,6 +7,7 @@
         left-arrow
         @click-left="onClickLeft"
         style="height:100%;line-height:60px;"
+        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
@@ -49,15 +50,15 @@ export default {
     },
     collect() {
       this.count = i;
+    },
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   async created() {
     const result = await collectreturn();
-    // console.log(result);
     this.collects = result.data.data;
-    //console.log(this.collects.length);
     this.count = this.collects.length;
-    //console.log(this.count);
   }
 };
 </script>

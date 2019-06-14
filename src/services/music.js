@@ -57,11 +57,7 @@ export function videoDetalreturn(id) {
 
 //导出最近播放音乐返回值
 export function broadcastreturn() {
-      return get("http://10.8.155.18:3000/user/record?uid=1553202823&type=1");
-}
 
-//导出最近播放歌曲详情
-export function broadcastdetal(id) {
       return get("http://10.8.155.18:3000/song/detail?ids=" + id);
 }
 
@@ -88,7 +84,7 @@ export function tuijiangedanreturn() {
 }
 //首页热门歌单推荐
 export function remengedanreturn() {
-      return get('http://10.8.155.18:3000/top/playlist?limit=12')
+      return get("http://10.8.155.18:3000/top/playlist?limit=12");
 }
 //导出我收藏的歌单信息
 export function shoucanggedanreturn() {
@@ -97,7 +93,19 @@ export function shoucanggedanreturn() {
 
 //歌单详情
 export function gedanxiangqingreturn(id) {
-      return get('http://10.8.155.18:3000/playlist/detail?id=' + id)
+      return get("http://10.8.155.18:3000/playlist/detail?id=" + id);
+}
+
+//搜索接口 获取最终搜索的详情，拿着id调用获取音乐url
+export function sousuojiekou(key) {
+      return get("http://10.8.155.18:3000/search?keywords=" + key);
+}
+
+//搜索建议调用此接口 , 传入搜索关键词可获得搜索建议，搜索结果同时包含单曲，歌手，歌单，mv信息。可选:type传mobile返回移动端数据
+export function search(key) {
+      return get(
+            "http://10.8.155.18:3000/search/suggest?keywords=" + key + "&type=mobile"
+      );
 }
 //收藏/取消收藏歌单  t : 类型,1:收藏,2:取消收藏 id : 歌单 id
 export function gedanshoucang(t, id) {
