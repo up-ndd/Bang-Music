@@ -7,6 +7,7 @@
         left-arrow
         @click-left="onClickLeft"
         style="height:100%;line-height:60px;"
+        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
@@ -37,13 +38,16 @@ export default {
   methods: {
     onClickLeft() {
       window.history.go(-1);
+    },
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   created() {
     denglureturn().then(res => {
       tuijiangedanreturn().then(result => {
         this.list = result.data.recommend;
-        console.log(this.list);
+        // console.log(this.list);
       });
     });
   }

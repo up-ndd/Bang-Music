@@ -7,11 +7,12 @@
         @click-left="onClickLeft"
         left-arrow
         style="height:100%;line-height:60px;"
+        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
     </header>
-    <img :src="broadcast[12].al.picUrl" style="height:280px;width:100%">
+    <img :src="broadcast[20].al.picUrl" style="height:280px;width:100%">
     <ul>
       <li>
         <router-link :to="{name:'playmusic',query:{all:broadcast}}">
@@ -29,7 +30,6 @@
         }"
         >
           <h4>{{i+1}}、{{p.name}}</h4>
-          <!-- <img :src="p.al.picUrl" alt> -->
         </router-link>
       </li>
     </ul>
@@ -50,6 +50,9 @@ export default {
     },
     broadcasts() {
       this.count = p;
+    },
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   async created() {
@@ -58,20 +61,17 @@ export default {
       this.broadcast.push(element.song);
       this.count = this.broadcast.length;
     });
-    // console.log(this.broadcast.length);
   }
 };
 </script>
 <style scoped>
-ul {
-  margin-top: 25px;
-}
 li {
   line-height: 60px;
   padding-left: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
+  background: rgb(234, 236, 236);
 }
 h4 {
   float: left;

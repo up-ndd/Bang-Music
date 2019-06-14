@@ -5,6 +5,7 @@
         title="个人中心"
         left-text="返回"
         @click-left="onClickLeft"
+        @click-right="SousuoHandle"
         left-arrow
         style="height:100%;line-height:60px;"
       >
@@ -61,6 +62,7 @@
             style="line-height:60px;float:left;margin:0 20px"
           />
           <span>最近播放的音乐</span>
+          ({{count3}})
         </router-link>
       </div>
     </div>
@@ -84,33 +86,37 @@
 import { shoucanggedanreturn } from "./../services/music";
 import { likelistreturn } from "./../services/music";
 import { collectreturn } from "./../services/music";
+import { broadcastreturn } from "./../services/music";
 export default {
   data() {
     return {
       active: 0,
       count: 0,
       count1: 0,
-      count2: 0
+      count2: 0,
+      count3: 0
     };
   },
   methods: {
     onClickLeft() {
       window.history.go(-1);
+    },
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   created() {
     shoucanggedanreturn().then(result => {
-      console.log(result);
       this.count = result.data.playlist.length - 1;
-      //console.log(this.count);
     });
     likelistreturn().then(result => {
-      console.log(result);
       this.count1 = result.data.ids.length;
     });
     collectreturn().then(result => {
-      console.log(result);
-      this.count2 = result.data.length;
+      this.count2 = result.data.data.length;
+    });
+    broadcastreturn().then(result => {
+      this.count3 = result.data.weekData.length;
     });
   }
 };
