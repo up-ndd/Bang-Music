@@ -29,7 +29,8 @@
           }
         }"
         >
-          <h4>{{i+1}}、{{p.name}}</h4>
+          <p>{{i+1}}、{{p.name}}</p>
+          <span>{{p.ar[0].name}}</span>
         </router-link>
       </li>
     </ul>
@@ -52,8 +53,8 @@ export default {
     like() {
       this.count = p;
     },
-    SousuoHandle(){
-      this.$router.push({name:"SouSuo"})
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   async created() {
@@ -69,7 +70,7 @@ export default {
     }
     likedatilereturn(id).then(res => {
       this.likelist = res.data.songs;
-      //console.log(this.likelist);
+      console.log(this.likelist);
       this.count = this.likelist.length;
     });
   }
@@ -77,15 +78,19 @@ export default {
 </script>
 <style scoped>
 li {
-  line-height: 60px;
+  line-height: 30px;
   padding-left: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
   background: rgb(251, 255, 255);
 }
-h4 {
-  float: left;
+p {
   padding-left: 20px;
+}
+span {
+  float: left;
+  padding-left: 60px;
+  color: darkgray;
 }
 </style>

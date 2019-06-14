@@ -77,6 +77,7 @@ export default {
     },
     SousuoHandle() {
       this.$router.push({ name: "SouSuo" });
+    },
     shoucanghandle(id) {
       if (this.shoucang) {
         denglureturn().then(
@@ -117,7 +118,7 @@ export default {
       });
     });
   }
-}
+};
 </script>
 <style scoped>
 .topinfo {

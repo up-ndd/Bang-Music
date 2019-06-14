@@ -23,8 +23,8 @@ export function likelistreturn() {
 export function likedatilereturn(a) {
   return get("http://10.8.155.18:3000/song/detail?ids=" + a);
 }
-//歌曲url
 
+//歌曲url
 export function likedatileurl(id) {
   return get("http://10.8.155.18:3000/song/url?id=" + id);
 }
@@ -100,17 +100,17 @@ export function gedanxiangqingreturn(id) {
   return get("http://10.8.155.18:3000/playlist/detail?id=" + id);
 }
 
-//搜索接口 获取最终搜索的详情，拿着id调用获取音乐url
+//多重匹配搜索接口 获取最终搜索的详情，拿着id调用获取音乐url
 export function sousuojiekou(key) {
   return get("http://10.8.155.18:3000/search?keywords=" + key);
 }
 
 //搜索建议调用此接口 , 传入搜索关键词可获得搜索建议，搜索结果同时包含单曲，歌手，歌单，mv信息。可选:type传mobile返回移动端数据
-export function search(key) {
-  return get(
-    "http://10.8.155.18:3000/search/suggest?keywords=" + key + "&type=mobile"
-  );
-}
+// export function search(key) {
+//   return get(
+//     "http://10.8.155.18:3000/search/suggest?keywords=" + key + "&type=mobile"
+//   );
+// }
 //收藏/取消收藏歌单  t : 类型,1:收藏,2:取消收藏 id : 歌单 id
 export function gedanshoucang(t, id) {
   return get(`http://10.8.155.18:3000/playlist/subscribe?t=${t}&id=${id}`, {

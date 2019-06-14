@@ -25,7 +25,7 @@
           :to="{
           name:'MusicListDesc',
           query:{
-           p
+           all:[p]
           },
         }"
         >
@@ -51,14 +51,15 @@ export default {
     song() {
       this.count = p;
     },
-    SousuoHandle(){
-      this.$router.push({name:"SouSuo"})
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   async created() {
     shoucanggedanreturn()
       .then(result => {
         this.songlist = result.data.playlist;
+        console.log(result);
         this.songlist.shift();
         this.count = this.songlist.length;
       })
