@@ -72,6 +72,9 @@ li {
   list-style: none;
   padding: 13px 20px;
 }
+li:nth-of-type(1) {
+  line-height: 12px;
+}
 .paiming {
   display: inline-block;
   width: 30px;

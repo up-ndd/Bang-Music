@@ -105,3 +105,13 @@ export function gedanshoucang(t, id) {
             withCredentials: true
       })
 }
+//喜欢/取消喜欢歌曲
+export function likemusicreturn(like, id) {
+      return get(`http://10.8.155.18:3000/like?id=${id}&like=${like}`, {
+            withCredentials: true
+      })
+}
+//获取歌曲评论 必选id:音乐id    可选：limit：数量   offset:偏移，相当于第页码n-1
+export function musicpinglunreturn(id, limit, offset) {
+      return get(`http://10.8.155.18:3000/comment/music?id=${id}&limit=${limit}&offset=${offset}`)
+}
