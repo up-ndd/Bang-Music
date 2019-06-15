@@ -148,7 +148,7 @@ export default {
       } else {
         this.i++;
       }
-      console.log(this.i);
+      // console.log(this.i);
       this.bgimg();
       this.ipupdata();
       this.fengmianupdata();
@@ -157,7 +157,7 @@ export default {
       }
       this.likeornolike();
       this.needtimeupdata();
-      console.log("下一首");
+      // console.log("下一首");
       this.timer = 0;
       this.currentPage = 1;
       this.qingqiupinglun(this.ip);
@@ -170,7 +170,7 @@ export default {
       } else {
         this.i--;
       }
-      console.log(this.i);
+      // console.log(this.i);
       this.bgimg();
       this.ipupdata();
       this.fengmianupdata();
@@ -179,7 +179,7 @@ export default {
       }
       this.likeornolike();
       this.needtimeupdata();
-      console.log("上一首");
+      // console.log("上一首");
       this.timer = 0;
       this.currentPage = 1;
       this.qingqiupinglun(this.ip);
@@ -193,7 +193,7 @@ export default {
     },
     //总播放时间更新
     needtimeupdata() {
-      console.log("总播放时间更新");
+      // console.log("总播放时间更新");
       let needsec = this.playlist[this.i].dt / 1000;
       let min = Math.floor(needsec / 60);
       let sec = Math.round(needsec - min * 60);
@@ -210,7 +210,7 @@ export default {
         sec = "0" + sec;
       }
       this.readytime = min + ":" + sec;
-      this.value = (this.timer / (this.playlist[this.i].dt / 1000)) * 100;
+      this.value = this.timer / (this.playlist[this.i].dt / 1000) * 100;
     },
     //背景图片更新
     bgimg() {
@@ -219,20 +219,20 @@ export default {
           this.playlist[this.i].al.picUrl
         }) center center no-repeat`
       };
-      console.log("背景图片更新为：");
-      console.log(this.backgroundstyle);
+      // console.log("背景图片更新为：");
+      // console.log(this.backgroundstyle);
     },
     //封面更新
     fengmianupdata() {
       this.fengmianurl = this.playlist[this.i].al.picUrl;
-      console.log("封面更新为：" + this.fengmianurl);
+      // console.log("封面更新为：" + this.fengmianurl);
     },
     //ip更新
     ipupdata() {
       this.ip = this.urllist.findIndex(item => {
         return item.id == this.playlist[this.i].id;
       });
-      console.log("ip更新为：" + this.ip);
+      // console.log("ip更新为：" + this.ip);
     },
     //开始拖动
     startslide() {
@@ -252,7 +252,7 @@ export default {
     likeornolike() {
       likelistreturn().then(item => {
         this.likelist = item.data.ids;
-        console.log(this.likelist);
+        // console.log(this.likelist);
         let a = this.likelist.findIndex(item => {
           return item == this.playlist[this.i].id;
         });
@@ -277,10 +277,10 @@ export default {
     },
     //点击播放
     goon() {
-      console.log(this.$refs.audio);
+      // console.log(this.$refs.audio);
       this.$refs.audio.play();
       this.zhuangtai = !this.zhuangtai;
-      console.log("点击了播放");
+      // console.log("点击了播放");
       this.jishiqi = setInterval(() => {
         this.timer += 1;
         // console.log(this.timer);
@@ -293,11 +293,11 @@ export default {
     },
     //点击暂停
     wait() {
-      console.log(this.$refs.audio);
+      // console.log(this.$refs.audio);
       // this.timer = 200;
       this.$refs.audio.pause();
       this.zhuangtai = !this.zhuangtai;
-      console.log("点击了暂停");
+      // console.log("点击了暂停");
       clearInterval(this.jishiqi);
       clearInterval(this.xuanzhuanjishiqi);
     },
@@ -307,19 +307,19 @@ export default {
     },
     //请求评论
     qingqiupinglun(id) {
-      console.log("请求评论");
-      console.log(this.currentPage);
+      // console.log("请求评论");
+      // console.log(this.currentPage);
       musicpinglunreturn(id, 20, (this.currentPage - 1) * 20).then(item => {
-        console.log(item);
+        // console.log(item);
         this.allpingluncount = item.data.total;
         this.pinglunlist = item.data.comments;
-        console.log(this.pinglunlist);
+        // console.log(this.pinglunlist);
       });
     }
   },
   watch: {
     currentPage() {
-      console.log(this.currentPage);
+      // console.log(this.currentPage);
       this.qingqiupinglun(this.playlist[this.i].id);
     },
     i() {
@@ -328,7 +328,7 @@ export default {
   },
   async created() {
     this.playlist = this.$route.query.all;
-    console.log(this.playlist);
+    // console.log(this.playlist);
     this.bgimg(); //请求第一首歌曲背景图片
     this.fengmianupdata(); //请求第一张封面图片
     this.needtimeupdata(); //计算音乐总时间
@@ -343,7 +343,7 @@ export default {
     //请求音乐url
     getmusicurl(id).then(res => {
       this.urllist = res.data.data;
-      console.log(this.urllist);
+      // console.log(this.urllist);
       this.ipupdata(); //更新对应url的位置
     });
     this.likeornolike(); //判断是否在喜欢列表
@@ -395,7 +395,6 @@ export default {
   margin: 0 30px;
   box-sizing: border-box;
   font-size: 14px;
-  /* color: #aaaaaa; */
   border-bottom: 1px solid #eee;
 }
 .pingluntouxiang {

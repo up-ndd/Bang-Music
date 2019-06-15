@@ -22,7 +22,6 @@
 </template>
 <script>
 import { colloecdatilereturn } from "./../services/music";
-// import { collectreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -39,7 +38,7 @@ export default {
     const result = await colloecdatilereturn(this.$route.query.id);
     //console.log(result);
     this.Cd = result.data;
-    console.log(this.Cd);
+    // console.log(this.Cd);
   }
 };
 </script>

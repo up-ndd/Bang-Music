@@ -60,7 +60,7 @@ export default {
           item.al = { picUrl: item.album.picUrl };
           item.dt = item.bMusic.playTime;
         });
-        console.log(this.playlist);
+        // console.log(this.playlist);
       });
     });
   }

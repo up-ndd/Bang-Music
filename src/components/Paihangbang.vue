@@ -58,7 +58,7 @@ export default {
   async created() {
     const result = await paihangbangreturn();
     this.list = result.data.playlist.tracks;
-    console.log(this.list);
+    // console.log(this.list);
   }
 };
 </script>

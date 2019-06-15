@@ -143,16 +143,16 @@ export default {
     },
     // 请求单页评论列表
     qingqiupinglun() {
-      console.log("请求评论");
-      console.log(this.currentPage);
+      // console.log("请求评论");
+      // console.log(this.currentPage);
       musiclistpinglunreturn(
         this.desc.id,
         20,
         (this.currentPage - 1) * 20
       ).then(item => {
-        console.log(item);
+        // console.log(item);
         this.pinglunlist = item.data.comments;
-        console.log(this.pinglunlist);
+        // console.log(this.pinglunlist);
       });
     }
   },
@@ -161,7 +161,7 @@ export default {
     this.gedanid = this.$route.query.id;
     gedanxiangqingreturn(this.gedanid).then(res => {
       this.desc = res.data.playlist;
-      console.log(this.desc);
+      // console.log(this.desc);
       //请求第一页评论
       this.qingqiupinglun();
       this.pingluncount = this.desc.commentCount;

@@ -45,13 +45,13 @@ export default {
   },
   async created() {
     const total = await videoreturn();
-    console.log(total.data.data);
+    // console.log(total.data.data);
     this.list = total.data.data; //显示图片
-    console.log(this.list[0].id);
+    // console.log(this.list[0].id);
     this.list.forEach(element => {
       // console.log(element.id);
       const uid = videoDetalreturn(element.id);
-      console.log(uid);
+      // console.log(uid);
     });
     // const dizhi = new videoDetalreturn(id);
     // console.log(dizhi);
