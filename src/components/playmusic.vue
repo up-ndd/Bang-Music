@@ -435,13 +435,15 @@ export default {
   font-size: 20px;
   color: #fff;
   position: absolute;
-  top: 30px;
+  top: 60px;
+  padding: 0 30px;
+  box-sizing: border-box;
 }
 .geshouname {
   font-size: 14px;
   color: #fff;
   position: absolute;
-  top: 60px;
+  top: 100px;
 }
 .musicimg {
   width: 60%;
