@@ -123,3 +123,20 @@ export function likemusicreturn(like, id) {
 export function musicpinglunreturn(id, limit, offset) {
       return get(`http://10.8.155.18:3000/comment/music?id=${id}&limit=${limit}&offset=${offset}`)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//歌单评论
+export function musiclistpinglunreturn(id, limit, offset) {
+      return get(`http://10.8.155.18:3000/comment/playlist?id=${id}&limit=${limit}&offset=${offset}`)
+}

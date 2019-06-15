@@ -57,6 +57,8 @@ export default {
           let obj = {};
           obj.name = this.playlist[i].artists[0].name;
           item.ar = [{ name: obj.name }];
+          item.al = { picUrl: item.album.picUrl };
+          item.dt = item.bMusic.playTime;
         });
         console.log(this.playlist);
       });

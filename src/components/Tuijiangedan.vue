@@ -47,7 +47,6 @@ export default {
     denglureturn().then(res => {
       tuijiangedanreturn().then(result => {
         this.list = result.data.recommend;
-        // console.log(this.list);
       });
     });
   }

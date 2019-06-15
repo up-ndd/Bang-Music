@@ -18,7 +18,7 @@
       <!-- 歌手名字 -->
       <p class="geshouname">{{playlist[i].ar[0].name}}</p>
       <!-- 封面图片 -->
-      <img :src="fengmianurl" alt class="musicimg">
+      <img :src="fengmianurl" alt class="musicimg" :style="tansform">
       <!-- 已经播放的时间 -->
       <span class="lefttime">{{readytime}}</span>
       <!-- 进度条 -->
@@ -37,6 +37,8 @@
       <img src="./../assets/icon-.png" class="nextbutton" @click="nextmusic">
       <!-- 评论 -->
       <img src="../assets/pinglun.png" alt class="pinglunbutton" @click="show=true">
+      <!-- 评论数 -->
+      <span class="pinglunbuttonspan">{{allpingluncount}}</span>
       <!-- 喜欢与取消喜欢 -->
       <img
         src="./../assets/xin.png"
@@ -73,7 +75,7 @@
       <!-- 翻页器 -->
       <van-pagination
         v-model="currentPage"
-        :total-items="1250"
+        :total-items="Math.ceil(allpingluncount/2)"
         :show-page-size="5"
         force-ellipses
         change="pinglunmore"
@@ -106,6 +108,12 @@ export default {
       backgroundstyle: {},
       //封面图片
       fengmianurl: "",
+      //旋转角度
+      deg: 0,
+      //图片旋转样式
+      tansform: {},
+      //旋转计时器
+      xuanzhuanjishiqi: "",
       // 总时间  分钟：秒
       alltime: "",
       // 经过时间   分钟：秒
@@ -127,7 +135,9 @@ export default {
       //评论页码
       currentPage: 1,
       //评论列表
-      pinglunlist: []
+      pinglunlist: [],
+      // 总评论数
+      allpingluncount: 0
     };
   },
   methods: {
@@ -151,6 +161,7 @@ export default {
       this.timer = 0;
       this.currentPage = 1;
       this.qingqiupinglun(this.ip);
+      this.deg = 0;
     },
     // 上一首
     premusic() {
@@ -172,15 +183,17 @@ export default {
       this.timer = 0;
       this.currentPage = 1;
       this.qingqiupinglun(this.ip);
+      this.deg = 0;
     },
     //返回
     onClickLeft() {
       clearInterval(this.jishiqi);
+      clearInterval(this.xuanzhuanjishiqi);
       window.history.go(-1);
     },
     //总播放时间更新
     needtimeupdata() {
-      console.log("总播放事件更新");
+      console.log("总播放时间更新");
       let needsec = this.playlist[this.i].dt / 1000;
       let min = Math.floor(needsec / 60);
       let sec = Math.round(needsec - min * 60);
@@ -273,6 +286,10 @@ export default {
         // console.log(this.timer);
         this.readytimeupdata();
       }, 1000);
+      this.xuanzhuanjishiqi = setInterval(() => {
+        this.deg += 0.72;
+        this.tansform = { transform: `rotate3d(0,0,1,${this.deg}deg)` };
+      }, 50);
     },
     //点击暂停
     wait() {
@@ -282,6 +299,7 @@ export default {
       this.zhuangtai = !this.zhuangtai;
       console.log("点击了暂停");
       clearInterval(this.jishiqi);
+      clearInterval(this.xuanzhuanjishiqi);
     },
     //评论页隐藏
     pinglunhiden() {
@@ -293,6 +311,7 @@ export default {
       console.log(this.currentPage);
       musicpinglunreturn(id, 20, (this.currentPage - 1) * 20).then(item => {
         console.log(item);
+        this.allpingluncount = item.data.total;
         this.pinglunlist = item.data.comments;
         console.log(this.pinglunlist);
       });
@@ -331,9 +350,13 @@ export default {
     //开始计时
     this.jishiqi = setInterval(() => {
       this.timer += 1;
-      // console.log(this.timer);
       this.readytimeupdata();
     }, 1000);
+    // 旋转定时器
+    this.xuanzhuanjishiqi = setInterval(() => {
+      this.deg += 0.72;
+      this.tansform = { transform: `rotate3d(0,0,1,${this.deg}deg)` };
+    }, 50);
     //请求第一页评论
     this.qingqiupinglun(this.playlist[0].id);
   }
@@ -422,10 +445,12 @@ export default {
 }
 .musicimg {
   width: 60%;
+  height: 35%;
   position: absolute;
   left: 20%;
-  top: 20%;
+  top: 24%;
   border-radius: 50%;
+  transform: rotate3d(0, 0, 1, 0deg);
 }
 body .van-slider {
   position: absolute;
@@ -476,9 +501,19 @@ body .van-slider {
   right: 27%;
   width: 30px;
 }
+.pinglunbuttonspan {
+  position: absolute;
+  bottom: 20.5%;
+  left: 72%;
+  border-radius: 10px;
+  font-size: 10px;
+  padding: 1px 3px;
+  color: #fff;
+  border: 1px solid #fff;
+}
 .fixed {
   height: 100%;
-  background: rgba(90, 90, 90, 0.3);
+  background: rgba(90, 90, 90, 0.2);
   position: fixed;
   left: 0;
   top: 0;

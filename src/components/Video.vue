@@ -39,7 +39,8 @@ import { videoDetalreturn } from "./../services/music";
 export default {
   data() {
     return {
-      list: []
+      list: [],
+      active: 2
     };
   },
   async created() {

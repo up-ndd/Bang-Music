@@ -57,6 +57,7 @@ export default {
             console.log(this.list);
             for (let a = 0; a < this.list.length; a++) {
               this.list[a].ar = [{ name: this.list[a].artists[0].name }];
+              this.list[a].al = { picUrl: this.list[a].album.artist.img1v1Url };
             }
             console.log(this.list);
           });
