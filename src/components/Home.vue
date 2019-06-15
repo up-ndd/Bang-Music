@@ -23,10 +23,10 @@
     </div>
     <!-- 私人FM、日推、歌单、排行 -->
     <ul class="sirenwrap">
-      <router-link :to="{name:'SirenFM'}" tag="li">
+      <!-- <router-link :to="{name:'SirenFM'}" tag="li">
         <van-icon name="service" size="50px"/>
         <p>私人FM</p>
-      </router-link>
+      </router-link>-->
       <router-link :to="{name:'Meirituijian'}" tag="li">
         <van-icon name="send-gift" size="50px"/>
         <p>每日推荐</p>
@@ -114,9 +114,10 @@ export default {
 .sirenwrap {
   display: flex;
   justify-content: space-around;
+  margin-top: 10px;
 }
 .sirenwrap div {
-  width: 25%;
+  width: 33.33%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
