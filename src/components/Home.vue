@@ -89,7 +89,6 @@ export default {
     this.pics = result.data.banners;
     const gadanresult = await remengedanreturn();
     this.gedans = gadanresult.data.playlists;
-    // console.log(this.gedans);
   }
 };
 </script>

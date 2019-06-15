@@ -1,5 +1,13 @@
 <template>
   <div class="sou">
+    <header>
+      <van-nav-bar
+        left-text="返回"
+        @click-left="onClickLeft"
+        left-arrow
+        style="height:100%;line-height:60px;"
+      ></van-nav-bar>
+    </header>
     <div class="suo">
       <van-search
         v-model="value"
@@ -22,9 +30,9 @@
             }
           }"
         >
-          <span>{{i+1}}</span>、
-          <span>{{p.name}}</span>
-          <p>{{p.artists[0].name}}</p>
+          <span class="paixu">{{i+1}}</span>.
+          <span class="geming">{{p.name}}</span>
+          <p class="geshou">{{p.artists[0].name}}</p>
         </router-link>
       </li>
     </ul>
@@ -40,7 +48,10 @@ export default {
     };
   },
   methods: {
-    onSearch() {}
+    onSearch() {},
+    onClickLeft() {
+      window.history.go(-1);
+    }
   },
   watch: {
     value() {
@@ -52,14 +63,11 @@ export default {
             }
           })
           .then(res => {
-            // console.log(res.data);
             this.list = res.data.result.songs;
-            console.log(this.list);
             for (let a = 0; a < this.list.length; a++) {
               this.list[a].ar = [{ name: this.list[a].artists[0].name }];
               this.list[a].al = { picUrl: this.list[a].album.artist.img1v1Url };
             }
-            console.log(this.list);
           });
       }
     }
@@ -72,26 +80,12 @@ export default {
   padding: 0;
 }
 .suo {
-  margin-top: -40px;
-  width: 100%;
-  height: 50px;
-}
-.sou input {
-  height: 50px;
   width: 70%;
-  margin-left: 30px;
-  border: 1px solid #5a9edb;
-  float: left;
-  position: relative;
-}
-.sou .dian {
   height: 50px;
-  width: 50px;
-  border: 1px solid #5a9edb;
-  float: left;
-  line-height: 50px;
-  font-size: 18px;
-  text-align: center;
+  position: fixed;
+  top: 10px;
+  right: 20px;
+  z-index: 100000;
 }
 .sou ul {
   position: absolute;
@@ -101,14 +95,23 @@ export default {
   display: block;
 }
 #xuanran li {
-  line-height: 30px;
-  padding-left: 10px;
+  padding: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
 }
-p {
-  color: darkgrey;
-  padding-left: 40px;
+.paixu {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.geshou {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgray;
+  font-size: 14px;
 }
 </style>

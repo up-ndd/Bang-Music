@@ -25,11 +25,13 @@
           :to="{
           name:'MusicListDesc',
           query:{
-           all:[p]
+           id:p.id
           },
         }"
         >
-          <h4>{{i+1}}、{{p.name}}</h4>
+          <span class="paixu">{{i+1}}</span>.
+          <span>{{p.name}}</span>
+          <p class="geshou">{{p.creator.nickname}}</p>
         </router-link>
       </li>
     </ul>
@@ -37,6 +39,7 @@
 </template>
 <script>
 import { shoucanggedanreturn } from "./../services/music";
+import { gedanxiangqingreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -59,7 +62,6 @@ export default {
     shoucanggedanreturn()
       .then(result => {
         this.songlist = result.data.playlist;
-        console.log(result);
         this.songlist.shift();
         this.count = this.songlist.length;
       })
@@ -69,14 +71,23 @@ export default {
 </script>
 <style scoped>
 li {
-  line-height: 60px;
-  padding-left: 10px;
+  padding: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
 }
-h4 {
-  float: left;
-  padding-left: 20px;
+.paixu {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.geshou {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgray;
+  font-size: 16px;
 }
 </style>
