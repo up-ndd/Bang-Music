@@ -1,6 +1,14 @@
 <template>
   <div class="b">
-    <h3>mv播放页面</h3>
+    <header>
+      <van-nav-bar
+        title="我收藏的MV"
+        left-text="返回"
+        left-arrow
+        @click-left="onClickLeft"
+        style="height:100%;line-height:60px;"
+      ></van-nav-bar>
+    </header>
 
     <video
       v-for="(p,i) in Cd.urls"
@@ -21,6 +29,11 @@ export default {
       Cd: {}
     };
   },
+  methods: {
+    onClickLeft() {
+      window.history.go(-1);
+    }
+  },
   async created() {
     // console.log(this.$route);
     const result = await colloecdatilereturn(this.$route.query.id);
@@ -35,6 +48,7 @@ video {
   margin-left: 25px;
   margin-top: -10px;
   border-bottom: none;
+  margin-top: 20px;
 }
 h3 {
   margin-top: -60px;

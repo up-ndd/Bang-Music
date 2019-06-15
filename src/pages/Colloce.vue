@@ -28,10 +28,9 @@
             }
           }"
         >
-          <p>
-            {{a+1}}、{{i.title}}
-            <span>{{i.creator[0].userName}}</span>
-          </p>
+          <span class="paixu">{{a+1}}</span>.
+          <span>{{i.title}}</span>
+          <p class="geshou">{{i.creator[0].userName}}</p>
         </router-link>
       </li>
     </ul>
@@ -39,7 +38,6 @@
 </template>
 <script>
 import { collectreturn } from "./../services/music";
-// import { ColloceDatile } from "./../services/music";
 export default {
   data() {
     return {
@@ -60,9 +58,7 @@ export default {
   },
   async created() {
     const result = await collectreturn();
-    console.log(result);
     this.collects = result.data.data;
-
     this.count = this.collects.length;
   }
 };
@@ -72,17 +68,23 @@ ul {
   margin-top: 25px;
 }
 li {
-  line-height: 50px;
-  padding-left: 10px;
+  padding: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
 }
-p {
-  float: left;
-  overflow: hidden;
+.paixu {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
 }
-span {
+.geshou {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: darkgray;
+  font-size: 14px;
 }
 </style>
