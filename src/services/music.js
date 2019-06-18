@@ -57,13 +57,9 @@ export function videoDetalreturn(id) {
 
 //导出最近播放音乐返回值
 export function broadcastreturn() {
-<<<<<<< HEAD
-  return get("https://net-music.penkuoer.com/user/record?uid=1553202823&type=1");
-=======
   return get(
     "https://net-music.penkuoer.com/user/record?uid=1553202823&type=1"
   );
->>>>>>> b4d0a41ff18b6a8e5b5c78226f4d93d96d53b1ed
 }
 
 //导出最近播放音乐详情
@@ -109,29 +105,19 @@ export function sousuojiekou(key) {
 //搜索建议调用此接口 , 传入搜索关键词可获得搜索建议，搜索结果同时包含单曲，歌手，歌单，mv信息。可选:type传mobile返回移动端数据
 export function search(key) {
   return get(
-<<<<<<< HEAD
-    "https://net-music.penkuoer.com/search/suggest?keywords=" + key + "&type=mobile"
-=======
     "https://net-music.penkuoer.com/search/suggest?keywords=" +
-      key +
-      "&type=mobile"
->>>>>>> b4d0a41ff18b6a8e5b5c78226f4d93d96d53b1ed
+    key +
+    "&type=mobile"
   );
 }
 //收藏/取消收藏歌单  t : 类型,1:收藏,2:取消收藏 id : 歌单 id
 export function gedanshoucang(t, id) {
-<<<<<<< HEAD
-  return get(`https://net-music.penkuoer.com/playlist/subscribe?t=${t}&id=${id}`, {
-    withCredentials: true
-  });
-=======
   return get(
     `https://net-music.penkuoer.com/playlist/subscribe?t=${t}&id=${id}`,
     {
       withCredentials: true
     }
   );
->>>>>>> b4d0a41ff18b6a8e5b5c78226f4d93d96d53b1ed
 }
 //喜欢/取消喜欢歌曲
 export function likemusicreturn(like, id) {
@@ -148,12 +134,7 @@ export function musicpinglunreturn(id, limit, offset) {
 
 //歌单评论
 export function musiclistpinglunreturn(id, limit, offset) {
-<<<<<<< HEAD
-      return get(`https://net-music.penkuoer.com/comment/playlist?id=${id}&limit=${limit}&offset=${offset}`)
-}
-=======
   return get(
     `https://net-music.penkuoer.com/comment/playlist?id=${id}&limit=${limit}&offset=${offset}`
   );
 }
->>>>>>> b4d0a41ff18b6a8e5b5c78226f4d93d96d53b1ed
