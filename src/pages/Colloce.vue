@@ -2,7 +2,7 @@
   <div id="collect">
     <header>
       <van-nav-bar
-        title="MV收藏页"
+        title="我收藏的MV"
         left-text="返回"
         left-arrow
         @click-left="onClickLeft"
@@ -28,7 +28,9 @@
             }
           }"
         >
-          <h4>{{a+1}}、{{i.title}}</h4>
+          <span class="paixu">{{a+1}}</span>.
+          <span>{{i.title}}</span>
+          <p class="geshou">{{i.creator[0].userName}}</p>
         </router-link>
       </li>
     </ul>
@@ -36,7 +38,6 @@
 </template>
 <script>
 import { collectreturn } from "./../services/music";
-// import { ColloceDatile } from "./../services/music";
 export default {
   data() {
     return {
@@ -67,13 +68,23 @@ ul {
   margin-top: 25px;
 }
 li {
-  line-height: 60px;
-  padding-left: 10px;
+  padding: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
 }
-h4 {
-  float: left;
+.paixu {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.geshou {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgray;
+  font-size: 14px;
 }
 </style>

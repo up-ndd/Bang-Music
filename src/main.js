@@ -18,7 +18,6 @@ import Tuijiangedan from "./components/Tuijiangedan.vue";
 import Paihangbang from "./components/Paihangbang.vue";
 import SouSuo from "./pages/SouSuo.vue";
 import MusicListDesc from "./components/MusicListDesc.vue";
-import Pinglun from "./components/Pinglun.vue";
 
 Vue.use(VueRouter);
 Vue.use(Vant);
@@ -100,11 +99,6 @@ const router = new VueRouter({
       path: "/pages/SouSuo",
       component: SouSuo,
       name: "SouSuo"
-    },
-    {
-      path: "/Pinglun",
-      component: Pinglun,
-      name: "Pinglun"
     }
   ]
 });

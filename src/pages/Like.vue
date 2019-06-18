@@ -5,14 +5,14 @@
         title="我喜欢的音乐"
         left-text="返回"
         @click-left="onClickLeft"
+        @click-right="SousuoHandle"
         left-arrow
         style="height:100%;line-height:60px;"
-        @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
     </header>
-    <img :src="likelist[6].al.picUrl" style="height:280px;width:100%">
+    <img :src="likelist[12].al.picUrl" style="height:280px;width:100%">
     <ul>
       <li>
         <router-link :to="{name:'playmusic',query:{all:likelist}}">
@@ -29,7 +29,9 @@
           }
         }"
         >
-          <h4>{{i+1}}、{{p.name}}</h4>
+          <span class="paixu">{{i+1}}</span>.
+          <span class="geming">{{p.name}}</span>
+          <p class="geshou">{{p.ar[0].name}}</p>
         </router-link>
       </li>
     </ul>
@@ -52,14 +54,13 @@ export default {
     like() {
       this.count = p;
     },
-    SousuoHandle(){
-      this.$router.push({name:"SouSuo"})
+    SousuoHandle() {
+      this.$router.push({ name: "SouSuo" });
     }
   },
   async created() {
     let id = "";
     const result = await likelistreturn();
-    // console.log(result);
     for (let a = 0; a < result.data.ids.length; a++) {
       if (a == 0) {
         id += result.data.ids[a];
@@ -69,7 +70,6 @@ export default {
     }
     likedatilereturn(id).then(res => {
       this.likelist = res.data.songs;
-      //console.log(this.likelist);
       this.count = this.likelist.length;
     });
   }
@@ -77,15 +77,23 @@ export default {
 </script>
 <style scoped>
 li {
-  line-height: 60px;
-  padding-left: 10px;
+  padding: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
-  background: rgb(251, 255, 255);
 }
-h4 {
-  float: left;
-  padding-left: 20px;
+.paixu {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.geshou {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgray;
+  font-size: 14px;
 }
 </style>

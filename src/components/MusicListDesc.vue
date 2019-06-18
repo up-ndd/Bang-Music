@@ -24,10 +24,10 @@
         <p class="gedanjieshao">{{desc.description}}</p>
       </div>
       <ul class="dowrap">
-        <router-link :to="{name:'Pinglun'}" tag="li">
+        <li @click="show=true">
           <van-icon name="comment-o" :info="pingluncount" size="24px" tag="div"></van-icon>
           <p>评论</p>
-        </router-link>
+        </li>
         <li @click="shoucanghandle(desc.id)">
           <van-icon name="star-o" :info="shoucangCount" size="24px" tag="div"></van-icon>
           <p>{{shoucang?'收藏':'已收藏'}}</p>
@@ -51,6 +51,34 @@
         </li>
       </ul>
     </div>
+    <!-- 弹出层 -->
+    <van-popup v-model="show" position="bottom" :overlay="false">
+      <!-- 头部 -->
+      <header style="background:#fff">
+        <van-nav-bar
+          title="评论"
+          left-text="返回"
+          left-arrow
+          @click-left="pinglunhiden"
+          style="height:100%;line-height:60px;"
+        ></van-nav-bar>
+      </header>
+      <ul class="pinglunul">
+        <li class="pinglunli" v-for="(p,i) in pinglunlist" :key="i">
+          <div class="uesename">{{p.user.nickname}}：</div>
+          <div class="content">{{p.content}}</div>
+          <img :src="p.user.avatarUrl" alt class="pingluntouxiang">
+        </li>
+      </ul>
+      <!-- 翻页器 -->
+      <van-pagination
+        v-model="currentPage"
+        :total-items="Math.ceil(pingluncount/2)"
+        :show-page-size="5"
+        force-ellipses
+        change="pinglunmore"
+      />
+    </van-popup>
   </div>
 </template>
 <script>
@@ -58,26 +86,42 @@ import {
   denglureturn,
   gedanxiangqingreturn,
   gedanshoucang,
-  shoucanggedanreturn
+  shoucanggedanreturn,
+  musiclistpinglunreturn
 } from "./../services/music";
 export default {
   data() {
     return {
+      //歌单id
       gedanid: 0,
+      // 歌单详情
       desc: {},
+      // 图片链接
       imgurl: {},
+      // 是否未收藏
       shoucang: true,
+      // 评论数
       pingluncount: 0,
-      shoucangCount: 0
+      // 收藏数
+      shoucangCount: 0,
+      //评论页展示与否
+      show: false,
+      // 评论页码
+      currentPage: 1,
+      // 评论列表
+      pinglunlist: []
     };
   },
   methods: {
+    // 返回
     onClickLeft() {
       window.history.go(-1);
     },
+    // 搜索按钮
     SousuoHandle() {
       this.$router.push({ name: "SouSuo" });
     },
+    // 收藏按钮
     shoucanghandle(id) {
       if (this.shoucang) {
         denglureturn().then(
@@ -92,6 +136,24 @@ export default {
           )
         );
       }
+    },
+    // 评论模态窗点击返回
+    pinglunhiden() {
+      this.show = false;
+    },
+    // 请求单页评论列表
+    qingqiupinglun() {
+      // console.log("请求评论");
+      // console.log(this.currentPage);
+      musiclistpinglunreturn(
+        this.desc.id,
+        20,
+        (this.currentPage - 1) * 20
+      ).then(item => {
+        // console.log(item);
+        this.pinglunlist = item.data.comments;
+        // console.log(this.pinglunlist);
+      });
     }
   },
   created() {
@@ -99,12 +161,15 @@ export default {
     this.gedanid = this.$route.query.id;
     gedanxiangqingreturn(this.gedanid).then(res => {
       this.desc = res.data.playlist;
-      console.log(this.desc);
+      // console.log(this.desc);
+      //请求第一页评论
+      this.qingqiupinglun();
       this.pingluncount = this.desc.commentCount;
       this.shoucangCount = this.desc.subscribedCount;
       this.imgurl = {
         background: `url(${this.desc.coverImgUrl}) center center no-repeat`
       };
+      // 判断有没有收藏
       shoucanggedanreturn().then(item => {
         item.data.playlist.shift();
         let i = item.data.playlist.findIndex(item => {
@@ -117,10 +182,59 @@ export default {
         }
       });
     });
+  },
+  watch: {
+    currentPage() {
+      this.qingqiupinglun();
+    }
   }
 };
 </script>
 <style scoped>
+/* 弹出层 */
+.van-popup {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+/* 分液器 */
+.van-pagination {
+  background: #fff;
+}
+.pinglunul {
+  padding: 60px 0;
+  box-sizing: border-box;
+  flex: 1;
+  overflow-y: auto;
+}
+.pinglunli {
+  position: relative;
+  margin-bottom: 20px;
+}
+.uesename {
+  text-indent: 50px;
+  color: #1989fa;
+  font-size: 14px;
+  line-height: 28px;
+}
+.content {
+  padding: 10px 30px 10px 50px;
+  margin: 0 30px;
+  box-sizing: border-box;
+  font-size: 14px;
+  /* color: #aaaaaa; */
+  border-bottom: 1px solid #eee;
+}
+.pingluntouxiang {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  position: absolute;
+  left: 10px;
+  top: 0;
+}
+/* 主页面 */
 .topinfo {
   position: relative;
   height: 250px;

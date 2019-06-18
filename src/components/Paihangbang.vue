@@ -58,7 +58,7 @@ export default {
   async created() {
     const result = await paihangbangreturn();
     this.list = result.data.playlist.tracks;
-    console.log(this.list);
+    // console.log(this.list);
   }
 };
 </script>
@@ -75,6 +75,9 @@ export default {
 li {
   list-style: none;
   padding: 13px 20px;
+}
+li:nth-of-type(1) {
+  line-height: 12px;
 }
 .paiming {
   display: inline-block;

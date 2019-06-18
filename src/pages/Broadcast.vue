@@ -4,15 +4,15 @@
       <van-nav-bar
         title="最近播放的音乐"
         left-text="返回"
-        @click-left="onClickLeft"
         left-arrow
+        @click-left="onClickLeft"
         style="height:100%;line-height:60px;"
         @click-right="SousuoHandle"
       >
         <van-icon name="search" slot="right" size="24px"/>
       </van-nav-bar>
     </header>
-    <img :src="broadcast[20].al.picUrl" style="height:280px;width:100%">
+    <img :src="broadcast[14].al.picUrl" style="height:280px;width:100%">
     <ul>
       <li>
         <router-link :to="{name:'playmusic',query:{all:broadcast}}">
@@ -29,7 +29,9 @@
         },
         }"
         >
-          <h4>{{i+1}}、{{p.name}}</h4>
+          <span class="paixu">{{i+1}}</span>.
+          <span>{{p.name}}</span>
+          <p class="geshou">{{p.ar[0].name}}</p>
         </router-link>
       </li>
     </ul>
@@ -66,16 +68,24 @@ export default {
 </script>
 <style scoped>
 li {
-  line-height: 60px;
-  padding-left: 10px;
+  padding: 10px;
   box-sizing: border-box;
   float: left;
   width: 100%;
-  background: rgb(234, 236, 236);
 }
-h4 {
-  float: left;
-  padding-left: 20px;
+.paixu {
+  display: inline-block;
+  width: 30px;
+  text-align: center;
+}
+.geshou {
+  text-indent: 40px;
+  width: 328px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: darkgray;
+  font-size: 14px;
 }
 </style>
 

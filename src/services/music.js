@@ -23,8 +23,8 @@ export function likelistreturn() {
 export function likedatilereturn(a) {
     return get("http://10.8.155.18:3000/song/detail?ids=" + a);
 }
-//歌曲url
 
+//歌曲url
 export function likedatileurl(id) {
     return get("http://10.8.155.18:3000/song/url?id=" + id);
 }
@@ -58,11 +58,6 @@ export function videoDetalreturn(id) {
 //导出最近播放音乐返回值
 export function broadcastreturn() {
     return get("http://10.8.155.18:3000/user/record?uid=1553202823&type=1");
-}
-
-//导出最近播放歌曲详情
-export function broadcastdetal(id) {
-    return get("http://10.8.155.18:3000/song/detail?ids=" + id);
 }
 
 //导出最近播放音乐详情
@@ -100,7 +95,7 @@ export function gedanxiangqingreturn(id) {
     return get("http://10.8.155.18:3000/playlist/detail?id=" + id);
 }
 
-//搜索接口 获取最终搜索的详情，拿着id调用获取音乐url
+//多重匹配搜索接口 获取最终搜索的详情，拿着id调用获取音乐url
 export function sousuojiekou(key) {
     return get("http://10.8.155.18:3000/search?keywords=" + key);
 }
@@ -118,4 +113,23 @@ export function gedanshoucang(t, id) {
     return get(`http://10.8.155.18:3000/playlist/subscribe?t=${t}&id=${id}`, {
         withCredentials: true
     });
+}
+//喜欢/取消喜欢歌曲
+export function likemusicreturn(like, id) {
+    return get(`http://10.8.155.18:3000/like?id=${id}&like=${like}`, {
+        withCredentials: true
+    });
+}
+//获取歌曲评论 必选id:音乐id    可选：limit：数量   offset:偏移，相当于第页码n-1
+export function musicpinglunreturn(id, limit, offset) {
+    return get(
+        `http://10.8.155.18:3000/comment/music?id=${id}&limit=${limit}&offset=${offset}`
+    );
+}
+
+//歌单评论
+export function musiclistpinglunreturn(id, limit, offset) {
+    return get(
+        `http://10.8.155.18:3000/comment/playlist?id=${id}&limit=${limit}&offset=${offset}`
+    );
 }
