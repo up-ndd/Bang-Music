@@ -6,6 +6,7 @@
         left-text="返回"
         left-arrow
         @click-left="onClickLeft"
+        @click-right="SousuoHandle"
         style="height:100%;line-height:60px;"
       >
         <van-icon name="search" slot="right" size="24px"/>
@@ -14,7 +15,9 @@
     <div>
       <ul>
         <li v-for=" (a,i) in list" :key="i">
-          <img :src="a.cover">
+          <router-link :to="{name:'PlayVideo',query:{id:a.id}}">
+            <img :src="a.cover">
+          </router-link>
         </li>
       </ul>
     </div>
@@ -35,7 +38,7 @@
 </template>
 <script>
 import { videoreturn } from "./../services/music";
-import { videoDetalreturn } from "./../services/music";
+
 export default {
   data() {
     return {
@@ -55,14 +58,6 @@ export default {
     const total = await videoreturn();
     // console.log(total.data.data);
     this.list = total.data.data; //显示图片
-    // console.log(this.list[0].id);
-    this.list.forEach(element => {
-      // console.log(element.id);
-      const uid = videoDetalreturn(element.id);
-      // console.log(uid);
-    });
-    // const dizhi = new videoDetalreturn(id);
-    // console.log(dizhi);
   }
 };
 </script>
