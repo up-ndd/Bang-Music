@@ -57,7 +57,7 @@ export default {
     value() {
       if (this.value) {
         axios
-          .get("http://10.8.155.18:3000/search?", {
+          .get("https://net-music.penkuoer.com/search?", {
             params: {
               keywords: this.value
             }
