@@ -35,7 +35,7 @@
 </template>
 <script>
 import { videoreturn } from "./../services/music";
-import { videoDetalreturn } from "./../services/music";
+// import { videoDetalreturn } from "./../services/music";
 export default {
   data() {
     return {
@@ -48,11 +48,11 @@ export default {
     // console.log(total.data.data);
     this.list = total.data.data; //显示图片
     // console.log(this.list[0].id);
-    this.list.forEach(element => {
-      // console.log(element.id);
-      const uid = videoDetalreturn(element.id);
-      // console.log(uid);
-    });
+    // this.list.forEach(element => {
+    // console.log(element.id);
+    // const uid = videoDetalreturn(element.id);
+    // console.log(uid);
+    // });
     // const dizhi = new videoDetalreturn(id);
     // console.log(dizhi);
   }

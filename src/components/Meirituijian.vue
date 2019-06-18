@@ -49,7 +49,7 @@ export default {
     }
   },
   async created() {
-    denglureturn().then(res => {
+    denglureturn().then(() => {
       meirituijianreturn().then(r => {
         //   console.log(r);
         this.playlist = r.data.recommend;

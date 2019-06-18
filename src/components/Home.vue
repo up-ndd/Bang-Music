@@ -70,7 +70,7 @@
   </div>
 </template>
 <script>
-import { lunboreturn, remengedanreturn } from "./../services/music";
+import { lunboreturn, remengedanreturn ,denglureturn} from "./../services/music";
 export default {
   data() {
     return {
@@ -85,6 +85,7 @@ export default {
     }
   },
   async created() {
+    denglureturn()
     const result = await lunboreturn();
     this.pics = result.data.banners;
     const gadanresult = await remengedanreturn();
